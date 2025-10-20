@@ -4,8 +4,11 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Button from "@mui/material/Button";
 import HomeHeroImage from "../../assets/images/home-hero.avif";
 import RightArrow from "../../assets/images/right arrow.svg";
+import { useState } from "react";
 
 export default function Home() {
+  const [openDropdown, setOpenDropdown] = useState(false);
+
   return (
     <div className="home">
       <div className="home-hero">
@@ -20,8 +23,35 @@ export default function Home() {
                     <li className="navbar-item">Properties</li>
                     <li className="navbar-item">Contact Us</li>
                   </ul>
-                  <div className="navbar-drop-down">
-                    Pages <ExpandMoreIcon />
+                  <div
+                    className="navbar-drop-down"
+                    onClick={() => setOpenDropdown(!openDropdown)}
+                  >
+                    Pages{" "}
+                    <ExpandMoreIcon
+                      className={`dropdown-icon ${
+                        openDropdown ? "rotate" : ""
+                      }`}
+                      sx={{ fontSize: "22px" }}
+                    />
+                    <div
+                      className={`dropdown-menu-wrapper ${
+                        openDropdown ? "open" : ""
+                      }`}
+                    >
+                      <div className="dropdown-menu">
+                        <div className="dropdown-column">
+                          <p>Properties</p>
+                          <p>Properties Details</p>
+                          <p>Contact Us</p>
+                        </div>
+                        <div className="dropdown-column">
+                          <p>Style Guides</p>
+                          <p>Licenses</p>
+                          <p>Changelog</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <Button
