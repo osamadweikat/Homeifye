@@ -1,8 +1,9 @@
 .home-hero {
   width: 100%;
-  height: calc(100vh + 79px);
+  height: calc(100vh + 158px);
   background-color: var(--primary-color);
   overflow: hidden;
+  position: relative;
 }
 
 .navbar {
@@ -174,6 +175,7 @@
   align-items: center;
   flex: 1;
   margin-right: 80px;
+  margin-top: 20px;
 }
 
 .img-box img {
@@ -211,4 +213,218 @@ button.slide-in {
 
 .img-box.slide-in {
   animation-delay: 0.4s;
+}
+
+.search-property {
+  position: relative;
+  z-index: 10;
+  margin-top: -108px;
+}
+
+.search-property-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+  border: 1px solid rgba(13, 14, 19, 0.1);
+  border-radius: 16px;
+  background: #fff;
+  padding: 30px 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  width: 85%;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.property-search-block {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.property-search-bar-wrapper {
+  display: flex;
+  align-items: center;
+
+  background: #fff;
+  border: 1px solid rgba(13, 14, 19, 0.1);
+  border-radius: 99px;
+  padding: 0 12px 0 48px;
+  height: 76px;
+  flex: 1;
+  position: relative;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+}
+
+.property-search-bar-wrapper:focus-within {
+  border-color: var(--secondary-color);
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.search-icon {
+  position: absolute;
+  left: 18px;
+  font-size: 22px;
+  color: #9b9b9b;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  color: var(--grey-color);
+}
+
+.property-search-bar-wrapper button {
+  background: var(--secondary-color);
+  border: none;
+  color: white;
+  font-size: 17px;
+  border-radius: 50px;
+  padding: 12px 30px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.property-search-bar-wrapper button:hover {
+  background: var(--secondary-color);
+}
+
+.property-search-drop-downs {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.property-search-drop-down-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 24px;
+  width: 182px;
+  height: 100px;
+  border: 1px solid rgba(13, 14, 19, 0.1);
+  border-radius: 99px;
+  background: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.property-search-drop-down-item:hover {
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+.property-search-drop-down-item img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  color: var(--grey-color);
+}
+
+.search-input::placeholder {
+  color: var(--grey-color);
+  opacity: 1;
+}
+
+.property-search-bar-wrapper button {
+  background: var(--secondary-color);
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 50px;
+  padding: 12px 32px;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.property-search-bar-wrapper button:hover {
+  background: var(--secondary-color);
+}
+
+.property-search-drop-downs {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.property-search-drop-down-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 26px;
+  height: 60px;
+  border: 1px solid rgba(13, 14, 19, 0.12);
+  border-radius: 50px;
+  background: #fff;
+  font-size: 15.5px;
+  font-weight: 500;
+  color: #222;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+}
+
+.property-search-drop-down-item:hover {
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+.property-search-drop-down-item img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: grayscale(1) brightness(0.5);
+}
+
+.property-search-drop-down-item svg {
+  color: var(--grey-color);
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.property-search-bar-wrapper,
+.property-search-drop-downs {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  will-change: transform, opacity;
+}
+
+.property-search-bar-wrapper.visible {
+  animation: slideInFromBottom 0.7s ease-out forwards;
+}
+
+.property-search-drop-downs.visible {
+  animation: slideInFromBottom 0.8s ease-out forwards;
+  animation-delay: 0.15s;
 }
