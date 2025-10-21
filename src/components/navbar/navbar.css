@@ -71,7 +71,7 @@
   top: 38px;
   right: 0;
   background-color: #f4f3ee;
-  color: #002820;
+  color: var(--primary-color);
   border-radius: 14px;
   padding: 25px 35px;
   display: flex;

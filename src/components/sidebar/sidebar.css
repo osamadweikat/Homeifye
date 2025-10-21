@@ -1,28 +1,27 @@
 .sidebar {
   position: fixed;
   top: 0;
-  right: 0; /* بدل -100% مؤقتًا */
-  width: 100vw; /* غطاء كامل العرض */
+  right: 0;
+  width: 100vw;
   height: 100vh;
   background-color: white;
-  color: #002820;
-  box-shadow: none; /* أزل الظل */
+  color: var(--primary-color);
+  box-shadow: none;
   z-index: 99999;
   display: flex;
   flex-direction: column;
   padding: 25px;
-  overflow-x: hidden; /* ← يمنع التمرير الجانبي */
+  overflow-x: hidden;
   transition: transform 0.4s ease-in-out;
-  transform: translateX(100%); /* تبدأ مخفية */
+  transform: translateX(100%);
   transition: transform 0.3s ease;
-  transform-origin: center center; /* 👈 أضف هذا السطر */
-  will-change: transform; /* 👈 يحسن الأداء */
-  z-index: 100000; /* 👈 تأكد إنها فوق الكل */
+  transform-origin: center center;
+  will-change: transform;
+  z-index: 100000;
 }
 
-/* عند الفتح */
 .sidebar.open {
-  transform: translateX(0); /* تنسحب من اليمين لليسار */
+  transform: translateX(0);
 }
 
 .sidebar-header {
@@ -43,13 +42,12 @@
   right: 25px;
   cursor: pointer;
   font-size: 32px !important;
-  color: #002820;
+  color: var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* غطي كل الحالات الممكنة */
 .sidebar-close,
 .sidebar-close * {
   transition: transform 0.3s ease;
@@ -62,7 +60,7 @@
 .sidebar-close:hover path {
   transform: rotate(90deg) !important;
   transform-origin: center center !important;
-  color: crimson; /* 👈 يخليها تلف بمكانها */
+  color: crimson;
 }
 
 .sidebar-menu {
@@ -78,7 +76,7 @@
 
 .sidebar-content {
   width: 100%;
-  max-width: 380px; /* عرض المحتوى داخل القائمة */
+  max-width: 380px;
 }
 
 .sidebar-menu li {

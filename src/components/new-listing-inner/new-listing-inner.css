@@ -1,0 +1,119 @@
+.new-listing-innert {
+  padding: 120px 120px;
+}
+
+.new-listing-header {
+  display: flex;
+  margin-bottom: 60px;
+  flex-flow: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new-listing-header h1 {
+  padding-bottom: 5px;
+  font-size: 70px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.collection-list-wrapper {
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.property-items {
+  display: grid;
+  place-items: stretch center;
+  grid-auto-columns: 1fr;
+  gap: 60px 30px;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-template-rows: auto;
+}
+
+.property-item {
+  position: relative;
+  width: 420px;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.property-image-wrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.property-image-wrapper img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform 0.4s ease;
+}
+
+.property-item:hover .property-image-wrapper img {
+  transform: scale(1.2);
+}
+
+.property-item:hover .property-name {
+  color: var(--secondary-color);
+  transition: color 0.3s ease;
+}
+
+.icon-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 150%);
+  background-color: var(--primary-color);
+  color: #fff;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+
+.property-item:hover .icon-wrapper {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.property-details {
+  padding: 20px 10px 0;
+  font-family: "Urbanist", sans-serif;
+}
+
+.property-details-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.property-name {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.property-price {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.property-details-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 18px;
+  color: rgba(13, 14, 19, 0.6);
+}
