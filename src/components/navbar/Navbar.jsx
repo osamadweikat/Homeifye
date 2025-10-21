@@ -1,6 +1,7 @@
 import "./navbar.css";
 import LogoImage from "../../assets/images/logo.svg";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
 
 export default function Navbar({ openDropdown, setOpenDropdown }) {
@@ -48,28 +49,32 @@ export default function Navbar({ openDropdown, setOpenDropdown }) {
                 </div>
               </div>
             </div>
-            <Button
-              variant="outlined"
-              sx={{
-                width: "160px",
-                height: "52px",
-                color: "white",
-                borderColor: "rgba(255,255,255,0.8)",
-                borderRadius: "50px",
-                padding: "15px 30px",
-                fontFamily: "'Urbanist', sans-serif",
-                fontSize: "17px",
-                textTransform: "none",
-                transition: "all 0.2s ease",
-                "&:hover": {
-                  backgroundColor: "white",
-                  color: "#002820",
-                  borderColor: "white",
-                },
-              }}
-            >
-              Get for Free
-            </Button>
+            <div className="navbar-actions">
+              <Button
+                className="navbar-btn"
+                variant="outlined"
+                sx={{
+                  width: "160px",
+                  height: "52px",
+                  color: "white",
+                  borderColor: "rgba(255,255,255,0.8)",
+                  borderRadius: "50px",
+                  padding: "15px 30px",
+                  fontFamily: "'Urbanist', sans-serif",
+                  fontSize: "17px",
+                  textTransform: "none",
+                  transition: "all 0.2s ease",
+                  "&:hover": {
+                    backgroundColor: "white",
+                    color: "#002820",
+                    borderColor: "white",
+                  },
+                }}
+              >
+                Get for Free
+              </Button>
+              <MenuIcon className="navbar-open" />
+            </div>
           </div>
         </div>
       </div>
