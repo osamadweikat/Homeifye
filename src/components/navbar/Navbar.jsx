@@ -1,10 +1,15 @@
 import "./navbar.css";
+import { useState } from "react";
 import LogoImage from "../../assets/images/logo.svg";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
+import Sidebar from "../sidebar/Sidebar";
+
 
 export default function Navbar({ openDropdown, setOpenDropdown }) {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
     <nav className="navbar">
       <div className="padding-section">
@@ -73,7 +78,12 @@ export default function Navbar({ openDropdown, setOpenDropdown }) {
               >
                 Get for Free
               </Button>
-              <MenuIcon className="navbar-open" />
+              <MenuIcon
+  className="navbar-open"
+  onClick={() => setIsSidebarOpen(true)}
+/>
+<Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
+
             </div>
           </div>
         </div>
