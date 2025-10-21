@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import InnerSection from "../../components/inner-section/InnerSection";
 import SearchProperty from "../../components/search-property/SearchProperty";
+import NewListingInner from "../../components/new-listing-inner/NewListingInner";
 
 export default function Home() {
   const [openDropdown, setOpenDropdown] = useState(false);
@@ -56,6 +57,7 @@ export default function Home() {
         <InnerSection />
       </div>
       <SearchProperty searchRef={searchRef} visible={visible} />
+      <NewListingInner />
     </div>
   );
 }
