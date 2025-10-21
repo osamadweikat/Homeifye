@@ -1,0 +1,125 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0; /* بدل -100% مؤقتًا */
+  width: 100vw; /* غطاء كامل العرض */
+  height: 100vh;
+  background-color: white;
+  color: #002820;
+  box-shadow: none; /* أزل الظل */
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  overflow-x: hidden; /* ← يمنع التمرير الجانبي */
+  transition: transform 0.4s ease-in-out;
+  transform: translateX(100%); /* تبدأ مخفية */
+  transition: transform 0.3s ease;
+  transform-origin: center center; /* 👈 أضف هذا السطر */
+  will-change: transform; /* 👈 يحسن الأداء */
+  z-index: 100000; /* 👈 تأكد إنها فوق الكل */
+}
+
+/* عند الفتح */
+.sidebar.open {
+  transform: translateX(0); /* تنسحب من اليمين لليسار */
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.sidebar-logo {
+  width: 140px;
+  cursor: pointer;
+}
+
+.sidebar-close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  cursor: pointer;
+  font-size: 32px !important;
+  color: #002820;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* غطي كل الحالات الممكنة */
+.sidebar-close,
+.sidebar-close * {
+  transition: transform 0.3s ease;
+  transform-origin: center center !important;
+}
+
+.sidebar-close:hover,
+.sidebar-close:hover *,
+.sidebar-close:hover svg,
+.sidebar-close:hover path {
+  transform: rotate(90deg) !important;
+  transform-origin: center center !important;
+  color: crimson; /* 👈 يخليها تلف بمكانها */
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.sidebar-content {
+  width: 100%;
+  max-width: 380px; /* عرض المحتوى داخل القائمة */
+}
+
+.sidebar-menu li {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.sidebar-menu li:hover {
+  color: var(--secondary-color);
+}
+
+.sidebar-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dropdown-icon {
+  transition: transform 0.3s ease;
+}
+
+.dropdown-icon.rotate {
+  transform: rotate(180deg);
+}
+
+.sidebar-submenu {
+  list-style: none;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
