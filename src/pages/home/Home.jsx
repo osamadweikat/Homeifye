@@ -17,6 +17,15 @@ export default function Home() {
 
   useEffect(() => {
     const currentRef = searchRef.current;
+
+    const hasScroll =
+      document.documentElement.scrollHeight > window.innerHeight;
+
+    if (!hasScroll) {
+      setVisible(true);
+      return;
+    }
+
     let userHasScrolled = false;
 
     const handleScroll = () => {
@@ -48,7 +57,7 @@ export default function Home() {
 
   return (
     <div className="home">
-      <div className="home-hero">
+      <div onClick={() => setOpenDropdown(false)} className="home-hero">
         <nav className="navbar">
           <div className="padding-section">
             <div className="container">
@@ -62,7 +71,10 @@ export default function Home() {
                   </ul>
                   <div
                     className="navbar-drop-down"
-                    onClick={() => setOpenDropdown(!openDropdown)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setOpenDropdown(!openDropdown);
+                    }}
                   >
                     Pages{" "}
                     <ExpandMoreIcon
