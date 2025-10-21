@@ -53,7 +53,7 @@ export default function Home() {
     <div className="home">
       <div onClick={() => setOpenDropdown(false)} className="home-hero">
         <Navbar openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
-        {/* <InnerSection /> */}
+        <InnerSection />
       </div>
       <SearchProperty searchRef={searchRef} visible={visible} />
     </div>

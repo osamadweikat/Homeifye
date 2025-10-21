@@ -6,7 +6,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
 import Sidebar from "../sidebar/Sidebar";
 
-
 export default function Navbar({ openDropdown, setOpenDropdown }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -66,7 +65,7 @@ export default function Navbar({ openDropdown, setOpenDropdown }) {
                   borderRadius: "50px",
                   padding: "15px 30px",
                   fontFamily: "'Urbanist', sans-serif",
-                  fontSize: "17px",
+                  fontSize: "clamp(5px, 0.5vw, 17px)",
                   textTransform: "none",
                   transition: "all 0.2s ease",
                   "&:hover": {
@@ -74,16 +73,33 @@ export default function Navbar({ openDropdown, setOpenDropdown }) {
                     color: "#002820",
                     borderColor: "white",
                   },
+                  "@media (max-width: 1700px)": {
+                    fontSize: "15px !important",
+                    width: "140px",
+                    height: "48px",
+                    padding: "12px 24px",
+                  },
+                  "@media (max-width: 479px)": {
+                    fontSize: "13px !important",
+                    width: "140px",
+                    height: "48px",
+                    padding: "12px 24px",
+                  },
+                  "@media (max-width: 320px)": {
+                    fontSize: "10px",
+                    width: "130px",
+                    height: "44px",
+                    padding: "10px 22px",
+                  },
                 }}
               >
                 Get for Free
               </Button>
               <MenuIcon
-  className="navbar-open"
-  onClick={() => setIsSidebarOpen(true)}
-/>
-<Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
-
+                className="navbar-open"
+                onClick={() => setIsSidebarOpen(true)}
+              />
+              <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
             </div>
           </div>
         </div>
