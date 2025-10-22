@@ -34,20 +34,20 @@ export default function Navbar({ openDropdown, setOpenDropdown }) {
                   sx={{ fontSize: "22px" }}
                 />
                 <div
-                  className={`dropdown-menu-wrapper ${
+                  className={`navbar-dropdown-list ${
                     openDropdown ? "open" : ""
                   }`}
                 >
-                  <div className="dropdown-menu">
-                    <div className="dropdown-column">
-                      <p>Properties</p>
-                      <p>Properties Details</p>
-                      <p>Contact Us</p>
+                  <div className="navbar-dropdown-list-inner">
+                    <div className="dropdown-link-column">
+                      <p className="dropdown-link">Properties</p>
+                      <p className="dropdown-link">Properties Details</p>
+                      <p className="dropdown-link">Contact Us</p>
                     </div>
-                    <div className="dropdown-column">
-                      <p>Style Guides</p>
-                      <p>Licenses</p>
-                      <p>Changelog</p>
+                    <div className="dropdown-link-column">
+                      <p className="dropdown-link">Style Guides</p>
+                      <p className="dropdown-link">Licenses</p>
+                      <p className="dropdown-link">Changelog</p>
                     </div>
                   </div>
                 </div>
@@ -95,6 +95,7 @@ export default function Navbar({ openDropdown, setOpenDropdown }) {
               >
                 Get for Free
               </Button>
+
               <MenuIcon
                 className="navbar-open"
                 onClick={() => setIsSidebarOpen(true)}
