@@ -13,6 +13,11 @@
 
 .content-box {
   flex: 0 1 716px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform: translateY(-150px);
+  justify-content: flex-start;
 }
 
 .content-box h1 {
@@ -20,10 +25,10 @@
   font-size: 92px;
   font-weight: 500;
   line-height: 1.05;
-  max-width: 100%;
-  height: 90%;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
   word-break: break-word;
+  max-width: 100%;
+  margin-top: 0;
 }
 
 .img-box {
@@ -94,6 +99,10 @@ button.slide-in {
     gap: 40px;
   }
 
+  .content-box {
+    transform: translateY(-80px);
+  }
+
   .content-box h1 {
     font-size: 74px;
   }
@@ -126,7 +135,9 @@ button.slide-in {
     padding: 100px 40px;
     gap: 25px;
   }
-
+  .content-box {
+    transform: translateY(-20px);
+  }
   .content-box h1 {
     font-size: 58px;
     line-height: 1.1;
@@ -155,10 +166,11 @@ button.slide-in {
     flex: 1;
     text-align: start;
     margin-left: 30px;
+    transform: translateY(15px);
   }
 
   .content-box h1 {
-    font-size: 78px;
+    font-size: 68px;
     line-height: 1.15;
     margin-bottom: 25px;
     margin-top: 0;
@@ -201,5 +213,21 @@ button.slide-in {
   .MuiButton-outlined {
     font-size: 16px !important;
     padding: 10px 22px !important;
+  }
+}
+
+@media (max-width: 470px) {
+  .content-box h1 {
+    font-size: 30px;
+    line-height: 1.2;
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 390px) {
+  .content-box h1 {
+    font-size: 22px;
+    line-height: 1.2;
+    margin-bottom: 25px;
   }
 }

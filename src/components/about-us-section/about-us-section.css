@@ -1,0 +1,176 @@
+.section-padding {
+  width: 100%;
+  background-color: var(--primary-color);
+  padding: 120px 40px;
+  height: 830px;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 11.5%;
+}
+
+.image-box {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-box img:first-child {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-top-right-radius: 50%;
+  object-fit: cover;
+}
+
+.image-box img:last-child {
+  position: absolute;
+  bottom: -70px;
+  right: -50px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.content-box {
+  width: 50%;
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.content-box .title {
+  font-size: 24px;
+  color: white;
+}
+
+.about-heading {
+  font-size: 70px;
+  font-weight: 500;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.content-box p {
+  font-size: 17px;
+  color: white;
+  margin-bottom: 40px;
+  max-width: 520px;
+}
+
+.about-items {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.about-item img {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.about-item-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.about-item .item-title {
+  font-size: 30px;
+  font-weight: 500;
+  color: white;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.about-item .body {
+  color: white;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+@media (max-width: 990px) {
+  .container {
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  .image-box,
+  .content-box {
+    width: 100%;
+  }
+
+  .image-box img:last-child {
+    position: static;
+    width: 220px;
+    height: 220px;
+    margin-top: 30px;
+  }
+
+  .about-heading {
+    font-size: 48px;
+  }
+
+  .content-box {
+    text-align: center;
+    align-items: center;
+  }
+
+  .about-items {
+    align-items: center;
+  }
+
+  .about-item {
+    justify-content: center;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-padding {
+    padding: 80px 20px;
+    height: auto;
+  }
+
+  .about-heading {
+    font-size: 34px;
+  }
+
+  .about-item img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .about-item .item-title {
+    font-size: 22px;
+  }
+
+  .about-item .body {
+    font-size: 15px;
+  }
+
+  .content-box p {
+    font-size: 15px;
+  }
+}

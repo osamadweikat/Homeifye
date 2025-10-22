@@ -14,33 +14,43 @@ export default function AboutUsSection() {
           <img src={AboutImage2} alt="about-image2" />
         </div>
         <div className="content-box">
-          <span>About us</span>
-          <h2 className="about-heading">About our Real Estate Firm</h2>
+          <span className="title">About us</span>
+          <h2 className="about-heading">
+            About our <br />
+            Real Estate Firm
+          </h2>
           <p>
             Our mission is simple, to provide unparalleled expertise, guidance,
             and support to our clients across their real estate journey.
           </p>
           <div className="about-items">
             <div className="about-item">
-              <img src={MoneyIcon} alt="mony-icon" />
-              <h3 className="title">Affordable Price</h3>
-              <span className="body">
-                Offering competitive rates that make quality accessible to all.
-              </span>
+              <img src={MoneyIcon} alt="money-icon" />
+              <div className="about-item-text">
+                <h3 className="item-title">Affordable Price</h3>
+                <span className="body">
+                  Offering competitive rates that make quality accessible to
+                  all.
+                </span>
+              </div>
             </div>
             <div className="about-item">
               <img src={LikeIcon} alt="like-icon" />
-              <h3 className="title">Clear Legality</h3>
-              <span className="body">
-                Ensuring transparent and compliant legal processes.{" "}
-              </span>
+              <div className="about-item-text">
+                <h3 className="item-title">Clear Legality</h3>
+                <span className="body">
+                  Ensuring transparent and compliant legal processes.
+                </span>
+              </div>
             </div>
             <div className="about-item">
               <img src={UsersIcon} alt="users-icon" />
-              <h3 className="title">Experienced Agents</h3>
-              <span className="body">
-                Guided by professionals with expertise in the industry.
-              </span>
+              <div className="about-item-text">
+                <h3 className="item-title">Experienced Agents</h3>
+                <span className="body">
+                  Guided by professionals with expertise in the industry.
+                </span>
+              </div>
             </div>
           </div>
         </div>

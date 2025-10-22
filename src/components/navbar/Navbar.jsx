@@ -58,38 +58,59 @@ export default function Navbar({ openDropdown, setOpenDropdown }) {
                 className="navbar-btn"
                 variant="outlined"
                 sx={{
-                  width: "160px",
-                  height: "52px",
                   color: "white",
                   borderColor: "rgba(255,255,255,0.8)",
                   borderRadius: "50px",
-                  padding: "15px 30px",
                   fontFamily: "'Urbanist', sans-serif",
-                  fontSize: "clamp(5px, 0.5vw, 17px)",
                   textTransform: "none",
-                  transition: "all 0.2s ease",
+                  transition: "all 0.3s ease",
+                  backgroundColor: "transparent",
+                  fontSize: "17px",
+                  width: "160px",
+                  height: "52px",
+                  padding: "15px 30px",
+
                   "&:hover": {
                     backgroundColor: "white",
                     color: "#002820",
                     borderColor: "white",
                   },
-                  "@media (max-width: 1700px)": {
-                    fontSize: "15px !important",
-                    width: "140px",
+
+                  "@media (max-width: 790px)": {
+                    fontSize: "14px !important",
+                    width: "150px",
                     height: "48px",
-                    padding: "12px 24px",
+                    padding: "12px 26px",
                   },
-                  "@media (max-width: 479px)": {
-                    fontSize: "13px !important",
+                  "@media (max-width: 670px)": {
+                    fontSize: "15px",
                     width: "140px",
-                    height: "48px",
-                    padding: "12px 24px",
+                    height: "45px",
+                    padding: "10px 22px",
+                  },
+                  "@media (max-width: 550px)": {
+                    fontSize: "14px",
+                    width: "130px",
+                    height: "42px",
+                    padding: "8px 20px",
+                  },
+                  "@media (max-width: 480px)": {
+                    fontSize: "10px !important",
+                    width: "120px",
+                    height: "40px",
+                    padding: "6px 16px",
+                  },
+                  "@media (max-width: 390px)": {
+                    fontSize: "12px",
+                    width: "110px",
+                    height: "38px",
+                    padding: "6px 14px",
                   },
                   "@media (max-width: 320px)": {
-                    fontSize: "10px",
-                    width: "130px",
-                    height: "44px",
-                    padding: "10px 22px",
+                    fontSize: "11px",
+                    width: "100px",
+                    height: "34px",
+                    padding: "5px 12px",
                   },
                 }}
               >
