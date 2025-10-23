@@ -4,34 +4,13 @@ import SearchIcon from "@mui/icons-material/Search";
 import HomeIcon from "../../assets/images/home-icon.svg";
 import LocationIcon from "../../assets/images/location-icon.svg";
 import TypesIcon from "../../assets/images/types-icon.svg";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import useInViewObserver from "../../hooks/useInViewObserver";
 
 export default function SearchProperty() {
   const sectionRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const handleClickOutside = () => setOpenDropdown(null);
-    window.addEventListener("click", handleClickOutside);
-    return () => window.removeEventListener("click", handleClickOutside);
-  }, []);
+  const isVisible = useInViewObserver(sectionRef, { threshold: 0.3 });
 
   const toggleDropdown = (name, e) => {
     e.stopPropagation();

@@ -6,11 +6,9 @@ import SearchProperty from "../../components/search-property/SearchProperty";
 import NewListingInner from "../../components/new-listing-inner/NewListingInner";
 import AboutUsSection from "../../components/about-us-section/AboutUsSection";
 import FeaturedListingSection from "../../components/featured-listing-section/FeaturedListingSection";
-import useSearchVisibility from "../../hooks/useSearchVisibility";
 
 export default function Home() {
   const [openDropdown, setOpenDropdown] = useState(false);
-  const { searchRef, visible } = useSearchVisibility();
 
   return (
     <div className="home">
@@ -18,7 +16,7 @@ export default function Home() {
         <Navbar openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
         <InnerSection />
       </div>
-      <SearchProperty searchRef={searchRef} visible={visible} />
+      <SearchProperty />
       <NewListingInner />
       <AboutUsSection />
       <FeaturedListingSection />

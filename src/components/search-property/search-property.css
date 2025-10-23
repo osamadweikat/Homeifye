@@ -65,7 +65,7 @@
 }
 
 .search-input::placeholder {
-  color: grey;
+  color: #9b9b9b;
   opacity: 1;
 }
 
