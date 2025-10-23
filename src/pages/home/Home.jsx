@@ -6,6 +6,7 @@ import SearchProperty from "../../components/search-property/SearchProperty";
 import NewListingInner from "../../components/new-listing-inner/NewListingInner";
 import AboutUsSection from "../../components/about-us-section/AboutUsSection";
 import FeaturedListingSection from "../../components/featured-listing-section/FeaturedListingSection";
+import TestimonySection from "../../components/testimony-sectioon/TestimonySection";
 
 export default function Home() {
   const [openDropdown, setOpenDropdown] = useState(false);
@@ -20,6 +21,7 @@ export default function Home() {
       <NewListingInner />
       <AboutUsSection />
       <FeaturedListingSection />
+      <TestimonySection />
     </div>
   );
 }
