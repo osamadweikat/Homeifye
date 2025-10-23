@@ -71,3 +71,9 @@
     height: calc(100vh + 300px);
   }
 }
+
+@media (max-width: 390px) {
+  .home-hero {
+    height: calc(100vh + 100px);
+  }
+}
