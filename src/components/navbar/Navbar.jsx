@@ -1,9 +1,9 @@
 import "./navbar.css";
+import { navbarMenuIconStyles } from "./navbarMenuIconStyles";
 import { useState } from "react";
 import LogoImage from "../../assets/images/logo.svg";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MenuIcon from "@mui/icons-material/Menu";
-import Button from "@mui/material/Button";
 import Sidebar from "../sidebar/Sidebar";
 
 export default function Navbar({ openDropdown, setOpenDropdown }) {
@@ -54,71 +54,9 @@ export default function Navbar({ openDropdown, setOpenDropdown }) {
               </div>
             </div>
             <div className="navbar-actions">
-              <Button
-                className="navbar-btn"
-                variant="outlined"
-                sx={{
-                  color: "white",
-                  borderColor: "rgba(255,255,255,0.8)",
-                  borderRadius: "50px",
-                  fontFamily: "'Urbanist', sans-serif",
-                  textTransform: "none",
-                  transition: "all 0.3s ease",
-                  backgroundColor: "transparent",
-                  fontSize: "17px",
-                  width: "160px",
-                  height: "52px",
-                  padding: "15px 30px",
-
-                  "&:hover": {
-                    backgroundColor: "white",
-                    color: "#002820",
-                    borderColor: "white",
-                  },
-
-                  "@media (max-width: 790px)": {
-                    fontSize: "14px !important",
-                    width: "150px",
-                    height: "48px",
-                    padding: "12px 26px",
-                  },
-                  "@media (max-width: 670px)": {
-                    fontSize: "15px",
-                    width: "140px",
-                    height: "45px",
-                    padding: "10px 22px",
-                  },
-                  "@media (max-width: 550px)": {
-                    fontSize: "14px",
-                    width: "130px",
-                    height: "42px",
-                    padding: "8px 20px",
-                  },
-                  "@media (max-width: 480px)": {
-                    fontSize: "10px !important",
-                    width: "120px",
-                    height: "40px",
-                    padding: "6px 16px",
-                  },
-                  "@media (max-width: 390px)": {
-                    fontSize: "12px",
-                    width: "110px",
-                    height: "38px",
-                    padding: "6px 14px",
-                  },
-                  "@media (max-width: 320px)": {
-                    fontSize: "11px",
-                    width: "100px",
-                    height: "34px",
-                    padding: "5px 12px",
-                  },
-                }}
-              >
-                Get for Free
-              </Button>
-
+              <button className="navbar-btn">Get for Free</button>
               <MenuIcon
-                className="navbar-open"
+                sx={navbarMenuIconStyles}
                 onClick={() => setIsSidebarOpen(true)}
               />
               <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
