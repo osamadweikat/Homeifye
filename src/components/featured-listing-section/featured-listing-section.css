@@ -1,0 +1,128 @@
+.featured-section-padding {
+  width: 100%;
+  padding: 120px 40px;
+}
+
+.featured-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.featured-header-section {
+  display: flex;
+  margin-bottom: 60px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.featured-header-section h2 {
+  font-size: 70px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.collection-list {
+  margin-bottom: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(13, 14, 19, 0.5);
+}
+
+.collection-list:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 30px;
+}
+
+.collection-list-content {
+  display: flex;
+  gap: 30px;
+  color: var(--primary-color);
+}
+
+.list-image-wrapper {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  width: 50%;
+  height: 350px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.list-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.list-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  flex: 1;
+}
+
+.list-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.list-title {
+  font-size: 52px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.collection-icon-wrapper {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+}
+
+.list-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.list-body {
+  padding-top: 20px;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--grey-color);
+  line-height: 1.6;
+}
+
+.list-price {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.price {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--primary-color);
+  margin-top: 130px;
+}
+
+.per-month {
+  font-size: 16px;
+  color: var(--grey-color);
+}
+
+.collection-list-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
