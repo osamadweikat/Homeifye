@@ -6,7 +6,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 export default function TestimonySection() {
   return (
     <div className="testimony-section-padding">
-      <div className="testimony-section">
+      <div className="testimony-section-container">
         <div className="testimony-header">
           <h2>Testimonials</h2>
         </div>
@@ -23,23 +23,26 @@ export default function TestimonySection() {
                   anyone looking to buy or sell real estate!
                 </p>
               </div>
+
               <div className="testimony-author-info">
-                <h3 className="testimony-author-name">Mark Orta</h3>
-                <span className="testimony-author-designation">
-                  CTO, Zelta Hand Co.
-                </span>
+                <div className="testimony-author-details">
+                  <h3 className="testimony-author-name">Mark Orta</h3>
+                  <span className="testimony-author-designation">
+                    CTO, Zelta Hand Co.
+                  </span>
+                </div>
+              </div>
+              <div className="testimony-arrows">
+                <div className="arrow left">
+                  <ArrowBackIcon />
+                </div>
+                <div className="arrow right">
+                  <ArrowForwardIcon />
+                </div>
               </div>
             </div>
             <div className="testimony-image-box">
               <img src={TestimonyImage1} alt="testimony-image1" />
-            </div>
-          </div>
-          <div className="testimony-icon-wrapper">
-            <div className="testimony-icon-left">
-              <ArrowBackIcon />
-            </div>
-            <div className="testimony-icon-right">
-              <ArrowForwardIcon />
             </div>
           </div>
         </div>
