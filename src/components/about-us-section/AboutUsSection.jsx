@@ -1,31 +1,13 @@
-import { useEffect } from "react";
 import "./about-us-section.css";
 import AboutImage1 from "../../assets/images/about-image1.avif";
 import AboutImage2 from "../../assets/images/about-image2.png";
 import MoneyIcon from "../../assets/images/money-icon.svg";
 import LikeIcon from "../../assets/images/like-icon.svg";
 import UsersIcon from "../../assets/images/users-icon.svg";
+import useInViewObserver from "../../hooks/useInViewObserver";
 
 export default function AboutUsSection() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
-          }
-        });
-      },
-      {
-        threshold: 0.2,
-      }
-    );
-
-    const animatedElements = document.querySelectorAll(".animate-up");
-    animatedElements.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
+  useInViewObserver(".animate-up", { threshold: 0.2 }, true);
 
   return (
     <div className="section-padding">
@@ -34,6 +16,7 @@ export default function AboutUsSection() {
           <img src={AboutImage1} alt="about-image1" />
           <img src={AboutImage2} alt="about-image2" />
         </div>
+
         <div className="content-box animate-up">
           <span className="title">About us</span>
           <h2 className="about-heading">
@@ -44,6 +27,7 @@ export default function AboutUsSection() {
             Our mission is simple, to provide unparalleled expertise, guidance,
             and support to our clients across their real estate journey.
           </p>
+
           <div className="about-items">
             <div className="about-item animate-up">
               <img src={MoneyIcon} alt="money-icon" />
