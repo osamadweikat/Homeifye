@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./featured-listing-section.css";
 import PropertyImage1 from "../../assets/images/property-image-1.avif";
 import PropertyImage2 from "../../assets/images/property-image-2.avif";
@@ -7,125 +8,91 @@ import NorthEastIcon from "@mui/icons-material/NorthEast";
 import RightArrow from "../../assets/images/right arrow.svg";
 
 export default function FeaturedListingSection() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    const elements = document.querySelectorAll(".animate-on-scroll");
+    elements.forEach((el) => observer.observe(el));
+
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+
+  const collections = [
+    {
+      img: PropertyImage1,
+      name: "Willow Heights",
+      price: "$290,000",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit animi omnis officia veritatis hic maxime nobis consectetur.",
+    },
+    {
+      img: PropertyImage2,
+      name: "Maple Grove",
+      price: "$400,000",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit animi omnis officia veritatis hic maxime nobis consectetur.",
+    },
+    {
+      img: PropertyImage3,
+      name: "Pine Estates",
+      price: "$180,000",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit animi omnis officia veritatis hic maxime nobis consectetur.",
+    },
+  ];
+
   return (
     <div className="featured-section-padding">
       <div className="featured-container">
-        <div className="featured-header-section">
+        <div className="featured-header-section animate-on-scroll fade-up">
           <h2>Featured Listings</h2>
         </div>
         <div className="collection-lists-wrapper">
           <div className="collection-lists">
-            <div className="collection-list">
-              <div className="collection-list-content">
-                <div className="list-image-wrapper">
-                  <img src={PropertyImage1} alt="property-image1" />
-                </div>
-
-                <div className="list-details">
-                  <div className="list-text">
-                    <div className="list-title-wrapper">
-                      <h3 className="list-title">Willow Heights</h3>
-                      <div className="collection-icon-wrapper">
-                        <NorthEastIcon
-                          sx={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            color: "white",
-                          }}
-                        />
+            {collections.map((item, index) => (
+              <div className="collection-list" key={index}>
+                <div className="collection-list-content">
+                  <div className="list-image-wrapper animate-on-scroll scale-up">
+                    <img src={item.img} alt={item.name} />
+                  </div>
+                  <div className="list-details animate-on-scroll fade-up">
+                    <div className="list-text">
+                      <div className="list-title-wrapper">
+                        <h3 className="list-title">{item.name}</h3>
+                        <div className="collection-icon-wrapper">
+                          <NorthEastIcon
+                            sx={{
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              color: "white",
+                            }}
+                          />
+                        </div>
+                      </div>
+                      <div className="list-body-wrapper">
+                        <p className="list-body">{item.desc}</p>
                       </div>
                     </div>
-                    <p className="list-body">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Reprehenderit animi omnis officia veritatis hic maxime
-                      nobis consectetur, vero dolore ipsam dolor fugit delectus
-                      ipsum dicta soluta at molestiae, similique aliquam!
-                    </p>
-                  </div>
-
-                  <div className="list-price">
-                    <span className="price">$ 290000</span>{" "}
-                    <span className="per-month">/Monthly</span>
+                    <div className="list-price">
+                      <span className="price">{item.price}</span>{" "}
+                      <span className="per-month">/Monthly</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="collection-list">
-              <div className="collection-list-content">
-                <div className="list-image-wrapper">
-                  <img src={PropertyImage2} alt="property-image2" />
-                </div>
-
-                <div className="list-details">
-                  <div className="list-text">
-                    <div className="list-title-wrapper">
-                      <h3 className="list-title">Maple Grove</h3>
-                      <div className="collection-icon-wrapper">
-                        <NorthEastIcon
-                          sx={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            color: "white",
-                          }}
-                        />
-                      </div>
-                    </div>
-                    <p className="list-body">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Reprehenderit animi omnis officia veritatis hic maxime
-                      nobis consectetur, vero dolore ipsam dolor fugit delectus
-                      ipsum dicta soluta at molestiae, similique aliquam!
-                    </p>
-                  </div>
-
-                  <div className="list-price">
-                    <span className="price">$ 400000</span>{" "}
-                    <span className="per-month">/Monthly</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="collection-list">
-              <div className="collection-list-content">
-                <div className="list-image-wrapper">
-                  <img src={PropertyImage3} alt="property-image3" />
-                </div>
-
-                <div className="list-details">
-                  <div className="list-text">
-                    <div className="list-title-wrapper">
-                      <h3 className="list-title">Pine Estates</h3>
-                      <div className="collection-icon-wrapper">
-                        <NorthEastIcon
-                          sx={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            color: "white",
-                          }}
-                        />
-                      </div>
-                    </div>
-                    <p className="list-body">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Reprehenderit animi omnis officia veritatis hic maxime
-                      nobis consectetur, vero dolore ipsam dolor fugit delectus
-                      ipsum dicta soluta at molestiae, similique aliquam!
-                    </p>
-                  </div>
-
-                  <div className="list-price">
-                    <span className="price">$ 180000</span>{" "}
-                    <span className="per-month">/Monthly</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
-        <div className="collection-list-btn">
+        <div className="collection-list-btn animate-on-scroll fade-up">
           <Button
             variant="outlined"
             sx={{
