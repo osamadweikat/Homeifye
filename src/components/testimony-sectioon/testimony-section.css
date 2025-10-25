@@ -26,6 +26,7 @@
 
 .testimony-slider {
   overflow: hidden;
+  position: relative;
 }
 
 .testimony-slider-card {
@@ -80,13 +81,25 @@
   color: white;
 }
 
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
 .testimony-arrows {
+  position: absolute;
+  top: 240px;
+  right: 500px;
+  transform: translateY(160px);
   display: flex;
   align-items: center;
   gap: 20px;
-  position: absolute;
-  bottom: 40px;
-  right: 0;
+  z-index: 10;
 }
 
 .testimony-arrows .arrow {
@@ -116,4 +129,17 @@
   max-width: 438px;
   align-self: flex-end;
   flex: 1 1 0%;
+}
+
+.testimony-header,
+.testimony-slider {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.testimony-header.in-view,
+.testimony-slider.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
