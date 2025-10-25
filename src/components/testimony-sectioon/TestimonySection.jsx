@@ -39,14 +39,12 @@ export default function TestimonySection() {
         <div className="testimony-header">
           <h2>Testimonials</h2>
         </div>
-
         <div className="testimony-slider">
           <div className="testimony-slider-card">
             <div className="testimony-card-content">
               <div className={`testmon-body ${fade ? "fade-out" : "fade-in"}`}>
                 <p>{currentTestimony.body}</p>
               </div>
-
               <div className="testimony-author-info">
                 <div
                   className={`testimony-author-details ${
@@ -62,18 +60,18 @@ export default function TestimonySection() {
                 </div>
               </div>
             </div>
-            <div className="testimony-arrows">
-              <div className="arrow left" onClick={handlePrev}>
-                <ArrowBackIcon />
-              </div>
-              <div className="arrow right" onClick={handleNext}>
-                <ArrowForwardIcon />
-              </div>
-            </div>
             <div
               className={`testimony-image-box ${fade ? "fade-out" : "fade-in"}`}
             >
               <img src={currentTestimony.img} alt={currentTestimony.name} />
+            </div>
+          </div>
+          <div className="testimony-arrows">
+            <div className="arrow left" onClick={handlePrev}>
+              <ArrowBackIcon />
+            </div>
+            <div className="arrow right" onClick={handleNext}>
+              <ArrowForwardIcon />
             </div>
           </div>
         </div>
