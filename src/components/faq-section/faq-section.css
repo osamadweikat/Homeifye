@@ -192,3 +192,23 @@
   font-weight: 500;
   color: var(--primary-color);
 }
+
+@media (max-width: 990px) {
+  .faq-section-header h2 {
+    font-size: 50px;
+  }
+
+  .faq-accordion-label {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 710px) {
+  .faq-section-header h2 {
+    font-size: 40px;
+  }
+
+  .faq-accordion-label {
+    font-size: 20px;
+  }
+}
