@@ -25,12 +25,11 @@ export default function Footer() {
                 <LinkedInIcon />
               </div>
               <button>
-                {" "}
                 Get for Free <img src={RightArrow} alt="arrow" />
               </button>
             </div>
             <div className="footer-links-wrapper">
-              <div className="footer link-column">
+              <div className="footer-link-column">
                 <h2>Pages</h2>
                 <div className="footer-links">
                   <span>Home</span>
@@ -38,7 +37,7 @@ export default function Footer() {
                   <span>Contact Us</span>
                 </div>
               </div>
-              <div className="footer link-column">
+              <div className="footer-link-column">
                 <h2>Template</h2>
                 <div className="footer-links">
                   <span>Style Guide</span>
@@ -47,12 +46,12 @@ export default function Footer() {
                   <span>404</span>
                 </div>
               </div>
-              <div className="footer link-column">
+              <div className="footer-link-column">
                 <h2>Contact</h2>
                 <div className="footer-links">
                   <span>(62) 1829017</span>
                   <span>hello@homeifye.com</span>
-                  <span>2912 Meadowbrook Road, Los Angeles, CA 90017</span>
+                  <p>2912 Meadowbrook Road, Los Angeles, CA 90017</p>
                 </div>
               </div>
             </div>
@@ -64,15 +63,19 @@ export default function Footer() {
                 Let us personalize your pages or make adjustments to help your
                 site shine.
               </p>
-              <button>
-                {" "}
-                Get in touch <img src={RightArrow} alt="arrow" />
-              </button>
             </div>
+            <button>
+              {" "}
+              Get in touch <img src={RightArrow} alt="arrow" />
+            </button>
           </div>
           <div className="footer-bottom">
-            <span>© All rights reserved. Flowfye.</span>
-            <span>Powered by Webflow.</span>
+            <span>
+              © All rights reserved. <span className="highlight">Flowfye.</span>
+            </span>
+            <span>
+              Powered by <span className="highlight">Webflow.</span>
+            </span>
           </div>
         </div>
       </div>
