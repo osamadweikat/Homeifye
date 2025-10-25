@@ -1,26 +1,15 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./faq-section.css";
+import useInViewObserver from "../../hooks/useInViewObserver";
+import { faqData } from "../../data/faqData";
 
 export default function FaqSection() {
   const [activeIndex, setActiveIndex] = useState(null);
+  const headerRef = useRef(null);
+  const labelsRef = useRef([]);
 
-  const faqs = [
-    {
-      question: "What services does Homeifye offer?",
-      answer:
-        "Homeifye connects buyers, sellers, and renters with a wide range of real estate services, including property listings, home valuation, and expert guidance through every step of the buying, selling, or renting process.",
-    },
-    {
-      question: "How can I list my property on Homeifye?",
-      answer:
-        "You can easily list your property by signing up, filling in the property details, uploading photos, and setting your price. Our team will review and publish your listing promptly.",
-    },
-    {
-      question: "Is Homeifye available in all regions?",
-      answer:
-        "Homeifye is expanding rapidly and is currently available in most major regions. You can check availability by searching for properties in your area on our website.",
-    },
-  ];
+  useInViewObserver(headerRef, { threshold: 0.2 }, true);
+  useInViewObserver(".faq-accordion-label", { threshold: 0.3 }, true);
 
   const handleToggle = (index) => {
     setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
@@ -29,12 +18,12 @@ export default function FaqSection() {
   return (
     <div className="faq-section-padding">
       <div className="faq-section-container">
-        <div className="faq-section-header">
+        <div className="faq-section-header" ref={headerRef}>
           <h2>Frequently Asked Questions</h2>
         </div>
 
         <div className="faq-section-content">
-          {faqs.map((item, index) => (
+          {faqData.map((item, index) => (
             <div
               key={index}
               className={`faq-accordion ${
@@ -43,6 +32,7 @@ export default function FaqSection() {
             >
               <div
                 className="faq-accordion-label"
+                ref={(el) => (labelsRef.current[index] = el)}
                 onClick={() => handleToggle(index)}
               >
                 <span>{item.question}</span>

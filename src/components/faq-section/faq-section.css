@@ -87,3 +87,108 @@
   font-weight: 500;
   color: var(--primary-color);
 }
+
+.faq-section-padding {
+  width: 100%;
+  padding: 120px 40px;
+}
+
+.faq-section-container {
+  width: 100%;
+  max-width: 1064px;
+  margin: 0 auto;
+}
+
+.faq-section-header {
+  display: flex;
+  margin-bottom: 60px;
+  justify-content: space-between;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease;
+}
+
+.faq-section-header.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faq-section-header h2 {
+  max-width: 696px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 70px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.faq-accordion {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  border-bottom: 1px solid rgba(9, 38, 29, 0.15);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-accordion-label {
+  display: flex;
+  width: 100%;
+  padding: 40px 0;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30px;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+}
+
+.faq-accordion-label.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faq-accordion-label span {
+  max-width: 80%;
+  line-height: 125%;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.faq-label-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.faq-icon-bar {
+  position: absolute;
+  width: 22px;
+  height: 2px;
+  background-color: var(--secondary-color);
+  transition: transform 0.8s ease;
+}
+
+.faq-icon-bar.vertical {
+  transform: rotate(90deg);
+}
+
+.faq-icon-bar.vertical.rotated {
+  transform: rotate(0deg);
+}
+
+.faq-accordion-pane {
+  overflow: hidden;
+  transition: all 0.8s ease;
+  background-color: transparent;
+}
+
+.faq-accordion-pane p {
+  padding-bottom: 40px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
