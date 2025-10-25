@@ -1,8 +1,15 @@
 import "./global-cta-section.css";
 import GlobalCtaImage from "../../assets/images/global-cta-image.png";
 import RightArrow from "../../assets/images/right arrow.svg";
+import useInViewObserver from "../../hooks/useInViewObserver";
 
 export default function GlobalCtaSection() {
+  useInViewObserver(
+    ".global-cta-image-box, .global-cta-content-box h2, .global-cta-content-box button",
+    {},
+    true
+  );
+
   return (
     <div className="global-cta-padding">
       <div className="global-cta-container">

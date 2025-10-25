@@ -72,3 +72,18 @@
 .global-cta-content-box button:hover img {
   filter: invert(0);
 }
+
+.global-cta-image-box,
+.global-cta-content-box h2,
+.global-cta-content-box button {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+.global-cta-image-box.in-view,
+.global-cta-content-box h2.in-view,
+.global-cta-content-box button.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
