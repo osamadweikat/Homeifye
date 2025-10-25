@@ -8,6 +8,7 @@ import AboutUsSection from "../../components/about-us-section/AboutUsSection";
 import FeaturedListingSection from "../../components/featured-listing-section/FeaturedListingSection";
 import TestimonySection from "../../components/testimony-sectioon/TestimonySection";
 import FaqSection from "../../components/faq-section/FaqSection";
+import GlobalCtaSection from "../../components/global-cta-section/GlobalCtaSection";
 
 export default function Home() {
   const [openDropdown, setOpenDropdown] = useState(false);
@@ -24,6 +25,7 @@ export default function Home() {
       <FeaturedListingSection />
       <TestimonySection />
       <FaqSection />
+      <GlobalCtaSection />
     </div>
   );
 }
