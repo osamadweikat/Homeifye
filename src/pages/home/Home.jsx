@@ -1,6 +1,5 @@
 import "./home.css";
-import { useState } from "react";
-import Navbar from "../../components/navbar/Navbar";
+import { useOutletContext } from "react-router-dom";
 import InnerSection from "../../components/inner-section/InnerSection";
 import SearchProperty from "../../components/search-property/SearchProperty";
 import NewListingInner from "../../components/new-listing-inner/NewListingInner";
@@ -9,15 +8,14 @@ import FeaturedListingSection from "../../components/featured-listing-section/Fe
 import TestimonySection from "../../components/testimony-sectioon/TestimonySection";
 import FaqSection from "../../components/faq-section/FaqSection";
 import GlobalCtaSection from "../../components/global-cta-section/GlobalCtaSection";
-import Footer from "../../components/footer/Footer";
 
 export default function Home() {
-  const [openDropdown, setOpenDropdown] = useState(false);
+  const outletContext = useOutletContext();
+  const setOpenDropdown = outletContext?.setOpenDropdown;
 
   return (
     <div className="home">
-      <div onClick={() => setOpenDropdown(false)} className="home-hero">
-        <Navbar openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
+      <div onClick={() => setOpenDropdown?.(false)} className="home-hero">
         <InnerSection />
       </div>
       <SearchProperty />
@@ -27,7 +25,6 @@ export default function Home() {
       <TestimonySection />
       <FaqSection />
       <GlobalCtaSection />
-      <Footer />
     </div>
   );
 }

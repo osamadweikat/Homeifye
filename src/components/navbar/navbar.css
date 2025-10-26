@@ -1,5 +1,5 @@
 .navbar {
-  margin-top: 10px;
+  background-color: var(--primary-color);
 }
 
 .padding-section {
@@ -163,10 +163,6 @@
 }
 
 @media screen and (max-width: 991px) {
-  .navbar {
-    margin-top: 10px;
-  }
-
   .navbar-inner {
     display: flex;
     justify-content: space-between;
