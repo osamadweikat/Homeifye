@@ -5,20 +5,33 @@ import LogoImage from "../../assets/images/logo.svg";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MenuIcon from "@mui/icons-material/Menu";
 import Sidebar from "../sidebar/Sidebar";
+import { Link } from "react-router-dom";
+import useReloadOnSameRoute from "../../hooks/useReloadOnSameRoute";
 
 export default function Navbar({ openDropdown, setOpenDropdown }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const reloadIfSame = useReloadOnSameRoute();
 
   return (
     <nav className="navbar">
       <div className="padding-section">
         <div className="container">
           <div className="navbar-inner">
-            <img src={LogoImage} alt="logo" />
+            <Link to="/" onClick={() => reloadIfSame("/")}>
+              <img src={LogoImage} alt="logo" />
+            </Link>
             <div className="navbar-menus">
               <ul className="navbar-menus-list">
-                <li className="navbar-item">Home</li>
-                <li className="navbar-item">Properties</li>
+                <Link to="/" onClick={() => reloadIfSame("/")}>
+                  <li className="navbar-item">Home</li>
+                </Link>
+                <Link
+                  to="/properties"
+                  onClick={() => reloadIfSame("/properties")}
+                >
+                  <li className="navbar-item">Properties</li>
+                </Link>
                 <li className="navbar-item">Contact Us</li>
               </ul>
               <div
