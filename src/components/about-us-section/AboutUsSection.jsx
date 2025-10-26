@@ -10,15 +10,15 @@ export default function AboutUsSection() {
   useInViewObserver(".animate-up", { threshold: 0.2 }, true);
 
   return (
-    <div className="section-padding">
-      <div className="container">
-        <div className="image-box animate-up">
+    <div className="about-us-section-padding">
+      <div className="about-us-container">
+        <div className="about-us-image-box animate-up">
           <img src={AboutImage1} alt="about-image1" />
           <img src={AboutImage2} alt="about-image2" />
         </div>
 
-        <div className="content-box animate-up">
-          <span className="title">About us</span>
+        <div className="about-us-content-box animate-up">
+          <span className="about-us-title">About us</span>
           <h2 className="about-heading">
             About our <br />
             Real Estate Firm

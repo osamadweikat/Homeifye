@@ -9,7 +9,7 @@
 
 @media (max-width: 1700px) {
   .home-hero {
-    height: calc(100vh - 100px);
+    height: calc(100vh - 150px);
   }
 }
 @media (max-width: 1540px) {

@@ -1,7 +1,8 @@
+import PropertiesHeroSection from "../../components/properties-hero-section/PropertiesHeroSection"
 import "./properties.css"
 
 export default function Properties() {
   return (
-    <h1>Available Properties</h1>
+    <PropertiesHeroSection />
   )
 }
