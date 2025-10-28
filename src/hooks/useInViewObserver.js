@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 export default function useInViewObserver(
   selector,
   options = {},
-  useClass = false
+  useClass = false,
+  extraDeps = []
 ) {
   const [visible, setVisible] = useState(false);
 
@@ -21,7 +22,6 @@ export default function useInViewObserver(
           } else {
             setVisible(true);
           }
-          observer.unobserve(entry.target);
         }
       });
     }, options);
@@ -31,20 +31,24 @@ export default function useInViewObserver(
     if (typeof selector === "string") {
       elements = Array.from(document.querySelectorAll(selector));
       elements.forEach((el) => {
-        if (checkInitialVisibility(el)) {
-          if (useClass) el.classList.add("in-view");
-          else setVisible(true);
-        } else {
+        if (useClass) el.classList.remove("in-view");
+        if (!checkInitialVisibility(el)) {
           observer.observe(el);
+        } else if (useClass) {
+          el.classList.add("in-view");
+        } else {
+          setVisible(true);
         }
       });
     } else if (selector?.current) {
       const el = selector.current;
-      if (checkInitialVisibility(el)) {
-        if (useClass) el.classList.add("in-view");
-        else setVisible(true);
-      } else {
+      if (useClass) el.classList.remove("in-view");
+      if (!checkInitialVisibility(el)) {
         observer.observe(el);
+      } else if (useClass) {
+        el.classList.add("in-view");
+      } else {
+        setVisible(true);
       }
     }
 
@@ -52,7 +56,7 @@ export default function useInViewObserver(
       elements.forEach((el) => observer.unobserve(el));
       observer.disconnect();
     };
-  }, [selector, options, useClass]);
+  }, [selector, options, useClass, extraDeps]);
 
   return visible;
 }

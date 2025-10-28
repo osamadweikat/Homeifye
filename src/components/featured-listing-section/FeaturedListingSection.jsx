@@ -7,6 +7,8 @@ import RightArrow from "../../assets/images/right arrow.svg";
 export default function FeaturedListingSection() {
   useInViewObserver(".animate-on-scroll", { threshold: 0.3 }, true);
 
+  const displayedProperties = propertiesData.slice(3, 6);
+
   return (
     <div className="featured-section-padding">
       <div className="featured-container">
@@ -15,7 +17,7 @@ export default function FeaturedListingSection() {
         </div>
         <div className="collection-lists-wrapper">
           <div className="collection-lists">
-            {propertiesData.map((item) => (
+            {displayedProperties.map((item) => (
               <div className="collection-list" key={item.id}>
                 <div className="collection-list-content">
                   <div className="list-image-wrapper animate-on-scroll scale-up">

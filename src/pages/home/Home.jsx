@@ -1,5 +1,4 @@
 import "./home.css";
-import { useOutletContext } from "react-router-dom";
 import InnerSection from "../../components/inner-section/InnerSection";
 import SearchProperty from "../../components/search-property/SearchProperty";
 import NewListingInner from "../../components/new-listing-inner/NewListingInner";
@@ -10,16 +9,13 @@ import FaqSection from "../../components/faq-section/FaqSection";
 import GlobalCtaSection from "../../components/global-cta-section/GlobalCtaSection";
 
 export default function Home() {
-  const outletContext = useOutletContext();
-  const setOpenDropdown = outletContext?.setOpenDropdown;
-
   return (
     <div className="home">
-      <div onClick={() => setOpenDropdown?.(false)} className="home-hero">
+      <div className="home-hero">
         <InnerSection />
       </div>
       <SearchProperty />
-      <NewListingInner />
+      <NewListingInner variant="home" />
       <AboutUsSection />
       <FeaturedListingSection />
       <TestimonySection />

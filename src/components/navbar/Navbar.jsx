@@ -1,6 +1,6 @@
+import { useEffect, useRef, useState } from "react";
 import "./navbar.css";
 import { navbarMenuIconStyles } from "./navbarMenuIconStyles";
-import { useState } from "react";
 import LogoImage from "../../assets/images/logo.svg";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -10,8 +10,22 @@ import useReloadOnSameRoute from "../../hooks/useReloadOnSameRoute";
 
 export default function Navbar({ openDropdown, setOpenDropdown }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
   const reloadIfSame = useReloadOnSameRoute();
+
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setOpenDropdown(false);
+      }
+    }
+
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [setOpenDropdown]);
 
   return (
     <nav className="navbar">
@@ -36,6 +50,7 @@ export default function Navbar({ openDropdown, setOpenDropdown }) {
               </ul>
               <div
                 className="navbar-drop-down"
+                ref={dropdownRef}
                 onClick={(e) => {
                   e.stopPropagation();
                   setOpenDropdown(!openDropdown);
@@ -66,6 +81,7 @@ export default function Navbar({ openDropdown, setOpenDropdown }) {
                 </div>
               </div>
             </div>
+
             <div className="navbar-actions">
               <button className="navbar-btn">Get for Free</button>
               <MenuIcon
