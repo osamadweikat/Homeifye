@@ -41,6 +41,16 @@ export default function Properties() {
     }
   };
 
+  const buttonContent = isForward ? (
+    <>
+      Next <ChevronRightIcon />
+    </>
+  ) : (
+    <>
+      <ChevronLeftIcon /> Previous
+    </>
+  );
+
   return (
     <div className="properties-page">
       <PropertiesHeroSection />
@@ -53,19 +63,10 @@ export default function Properties() {
           onClick={handleClick}
           disabled={totalPages <= 1}
         >
-          {isForward ? (
-            <>
-              Next
-              <ChevronRightIcon />
-            </>
-          ) : (
-            <>
-              <ChevronLeftIcon />
-              Previous
-            </>
-          )}
+          {buttonContent}
         </button>
       </div>
+
       <GlobalCtaSection />
     </div>
   );

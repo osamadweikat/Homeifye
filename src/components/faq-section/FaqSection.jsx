@@ -6,8 +6,8 @@ import { faqData } from "../../data/faqData";
 export default function FaqSection() {
   const [activeIndex, setActiveIndex] = useState(null);
   const headerRef = useRef(null);
-  const labelsRef = useRef([]);
-
+  const contentRefs = useRef([]);
+  
   useInViewObserver(headerRef, { threshold: 0.2 }, true);
   useInViewObserver(".faq-accordion-label", { threshold: 0.3 }, true);
 
@@ -26,31 +26,36 @@ export default function FaqSection() {
           {faqData.map((item, index) => (
             <div
               key={index}
-              className={`faq-accordion ${
-                activeIndex === index ? "active" : ""
-              }`}
+              className={`faq-accordion ${activeIndex === index ? "active" : ""}`}
             >
               <div
                 className="faq-accordion-label"
-                ref={(el) => (labelsRef.current[index] = el)}
                 onClick={() => handleToggle(index)}
+                role="button"
+                aria-expanded={activeIndex === index}
+                aria-controls={`faq-pane-${index}`}
               >
                 <span>{item.question}</span>
                 <div className="faq-label-icon">
                   <div className="faq-icon-bar horizontal"></div>
                   <div
-                    className={`faq-icon-bar vertical ${
-                      activeIndex === index ? "rotated" : ""
-                    }`}
+                    className={`faq-icon-bar vertical ${activeIndex === index ? "rotated" : ""}`}
                   ></div>
                 </div>
               </div>
 
               <div
+                id={`faq-pane-${index}`}
+                ref={(el) => (contentRefs.current[index] = el)}
                 className="faq-accordion-pane"
                 style={{
-                  maxHeight: activeIndex === index ? "200px" : "0",
+                  maxHeight:
+                    activeIndex === index
+                      ? `${contentRefs.current[index]?.scrollHeight}px`
+                      : "0",
                   opacity: activeIndex === index ? 1 : 0,
+                  transition: "max-height 0.3s ease, opacity 0.3s ease",
+                  overflow: "hidden",
                 }}
               >
                 <p>{item.answer}</p>
