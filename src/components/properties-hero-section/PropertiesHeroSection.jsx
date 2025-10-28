@@ -1,13 +1,28 @@
 import "./properties-hero-section.css";
 import SearchProperty from "../search-property/SearchProperty";
-import useReloadOnSameRoute from "../../hooks/useReloadOnSameRoute";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import useInViewObserver from "../../hooks/useInViewObserver";
 
 export default function PropertiesHeroSection() {
-  const reloadIfSame = useReloadOnSameRoute();
+  useInViewObserver(".fade-section, .fade-title", { threshold: 0.3 }, true);
 
-  useInViewObserver(".fade-section, .fade-title", { threshold: 0.2 }, true);
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const search = queryParams.get("search");
+  const properties = queryParams.get("properties");
+  const locationFilter = queryParams.get("location");
+  const types = queryParams.get("types");
+
+  let title = "Properties";
+  if (search) {
+    title = search;
+  } else if (properties) {
+    title = properties;
+  } else if (locationFilter) {
+    title = locationFilter;
+  } else if (types) {
+    title = types;
+  }
 
   return (
     <div className="properties-hero-section">
@@ -18,11 +33,17 @@ export default function PropertiesHeroSection() {
               <span>Home</span>
             </Link>
             /
-            <Link to="/properties" onClick={() => reloadIfSame("/properties")}>
+            <Link
+              to="/properties"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "/properties";
+              }}
+            >
               <span>Properties</span>
             </Link>
           </div>
-          <h1 className="fade-title">Properties</h1>
+          <h1 className="fade-title">{title}</h1>
         </div>
       </div>
       <SearchProperty />
