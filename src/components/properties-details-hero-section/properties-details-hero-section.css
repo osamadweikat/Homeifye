@@ -84,27 +84,18 @@
   border: 1px solid var(--secondary-color);
   border-radius: 99px;
   background-color: transparent;
-  color: var(--secondary-color);
+  color: white;
+  background-color: var(--secondary-color);
   font-size: 18px;
+  font-family: "Urbanist", sans-serif;
   text-transform: none;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .properties-hero-buy-wrapper button img {
   width: 22px;
   height: 22px;
-  filter: invert(51%) sepia(94%) saturate(2048%) hue-rotate(359deg)
-    brightness(100%) contrast(104%);
-  transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-.properties-hero-buy-wrapper button:hover {
-  background-color: var(--secondary-color);
-  color: white;
-}
-
-.properties-hero-buy-wrapper button:hover img {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(141deg)
     brightness(106%) contrast(101%);
   transform: translateX(4px);
