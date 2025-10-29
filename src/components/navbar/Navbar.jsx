@@ -42,7 +42,10 @@ export default function Navbar({ openDropdown, setOpenDropdown }) {
                 </Link>
                 <Link
                   to="/properties"
-                  onClick={() => reloadIfSame("/properties")}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = "/properties";
+                  }}
                 >
                   <li className="navbar-item">Properties</li>
                 </Link>

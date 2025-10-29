@@ -5,6 +5,7 @@ import NewListingInner from "../../components/new-listing-inner/NewListingInner"
 import { propertiesData } from "../../data/propertiesData";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
 import GlobalCtaSection from "../../components/global-cta-section/GlobalCtaSection";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -156,7 +157,13 @@ export default function Properties() {
           )}
         </>
       ) : (
-        <div className="no-results">No results found</div>
+        <div className="no-results">
+          <div className="no-results-section-padding">
+            <div className="no-results-container">
+              <ErrorOutlineOutlinedIcon /> No items found.
+            </div>
+          </div>
+        </div>
       )}
 
       <GlobalCtaSection />
