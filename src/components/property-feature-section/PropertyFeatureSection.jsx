@@ -1,4 +1,6 @@
 import "./property-feature-section.css";
+import { useEffect } from "react";
+import useInViewObserver from "../../hooks/useInViewObserver";
 import PropertyFeatures1 from "../../assets/images/property-features-1.svg";
 import PropertyFeatures2 from "../../assets/images/property-features-2.svg";
 import PropertyFeatures3 from "../../assets/images/property-features-3.svg";
@@ -7,6 +9,16 @@ import PropertyFeatures5 from "../../assets/images/property-features-5.svg";
 import PropertyFeatures6 from "../../assets/images/property-features-6.svg";
 
 export default function PropertyFeatureSection() {
+  useInViewObserver(".property-feature-heading h2", {}, true);
+  useInViewObserver(".property-feature-details-item", {}, true);
+
+  useEffect(() => {
+    const items = document.querySelectorAll(".property-feature-details-item");
+    items.forEach((item, index) => {
+      item.style.transitionDelay = `${0.2 + index * 0.1}s`;
+    });
+  }, []);
+
   return (
     <div className="property-feature-padding">
       <div className="property-feature-container">
@@ -23,6 +35,7 @@ export default function PropertyFeatureSection() {
               </p>
             </div>
           </div>
+
           <div className="property-feature-details-item">
             <img src={PropertyFeatures2} alt="property-features2" />
             <div className="property-feature-details-item-text">
@@ -30,6 +43,7 @@ export default function PropertyFeatureSection() {
               <p>Ample parking space for residents and visitors alike.</p>
             </div>
           </div>
+
           <div className="property-feature-details-item">
             <img src={PropertyFeatures3} alt="property-features3" />
             <div className="property-feature-details-item-text">
@@ -37,6 +51,7 @@ export default function PropertyFeatureSection() {
               <p>State-of-the-art fire alarm system for enhanced safety.</p>
             </div>
           </div>
+
           <div className="property-feature-details-item">
             <img src={PropertyFeatures4} alt="property-features4" />
             <div className="property-feature-details-item-text">
@@ -44,6 +59,7 @@ export default function PropertyFeatureSection() {
               <p>Natural wind ventilation for a fresh living environment.</p>
             </div>
           </div>
+
           <div className="property-feature-details-item">
             <img src={PropertyFeatures5} alt="property-features5" />
             <div className="property-feature-details-item-text">
@@ -51,6 +67,7 @@ export default function PropertyFeatureSection() {
               <p>Secure, ample parking for residents and guests.</p>
             </div>
           </div>
+
           <div className="property-feature-details-item">
             <img src={PropertyFeatures6} alt="property-features6" />
             <div className="property-feature-details-item-text">

@@ -65,3 +65,113 @@
   font-weight: 400;
   color: white;
 }
+
+.property-feature-heading h2,
+.property-feature-details-item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.property-feature-heading h2.in-view {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+.property-feature-details-item.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 1280px) {
+  .property-feature-details {
+    gap: 60px 100px;
+  }
+
+  .property-feature-details-item {
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .property-feature-details-item img {
+    width: 80px;
+  }
+}
+
+@media (max-width: 990px) {
+  .property-feature-padding {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  .property-feature-heading {
+    max-width: none;
+  }
+
+  .property-feature-heading h2 {
+    max-width: 470px;
+    margin-bottom: 30px;
+  }
+
+  .property-feature-details {
+    grid-template-columns: minmax(250px, 1fr) minmax(250px, 1fr);
+  }
+
+  .property-feature-details-item-text h3 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 770px) {
+  .property-feature-padding {
+    padding: 60px 16px;
+  }
+
+  .property-feature-heading h2 {
+    max-width: 380px;
+    margin-left: 0px;
+    text-align: left;
+    font-size: 45px;
+  }
+
+  .property-feature-details {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .property-feature-details-item {
+    flex-flow: column;
+  }
+  .property-feature-details-item img {
+    margin-right: 170px;
+  }
+}
+
+@media (max-width: 679px) {
+  .property-feature-heading h2 {
+    max-width: 310px;
+    font-size: 30px;
+  }
+
+  .property-feature-details {
+    place-items: center;
+    row-gap: 32px;
+    grid-template-columns: 1fr;
+  }
+
+  .property-feature-details-item {
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .property-feature-details-item img {
+    width: 48px;
+    margin: 0px;
+  }
+
+  .property-feature-details-item-text {
+    max-width: 320px;
+    text-align: left;
+  }
+}
