@@ -115,13 +115,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: auto;
   border-radius: 16px;
+  min-height: 400px;
+  aspect-ratio: 16/9;
+  margin-bottom: -150px;
+  overflow: hidden;
 }
 
 .properties-details-slider img {
-  overflow: hidden;
-
+  object-fit: cover;
   width: 100%;
   height: auto;
   display: block;
@@ -208,6 +210,32 @@
 
 .properties-details-slider.in-view img {
   transform: scale(1);
+}
+
+.slide-left {
+  animation: slideLeft 0.5s forwards;
+}
+
+.slide-right {
+  animation: slideRight 0.5s forwards;
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100%) scale(1.2);
+  }
+  100% {
+    transform: translateX(0%) scale(1);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100%) scale(1.2);
+  }
+  100% {
+    transform: translateX(0%) scale(1);
+  }
 }
 
 @media (max-width: 1280px) {
