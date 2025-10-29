@@ -116,11 +116,12 @@
   justify-content: center;
   align-items: center;
   height: auto;
+  border-radius: 16px;
 }
 
 .properties-details-slider img {
   overflow: hidden;
-  border-radius: 16px;
+
   width: 100%;
   height: auto;
   display: block;
@@ -157,4 +158,160 @@
 
 .properties-slider-arrow-right {
   right: 60px;
+}
+
+.properties-details-heading,
+.properties-hero-buy-wrapper p,
+.properties-hero-buy-wrapper button,
+.properties-details-info {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.properties-details-heading.in-view {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+.properties-hero-buy-wrapper p.in-view {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.properties-hero-buy-wrapper button.in-view {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+
+.properties-details-info.in-view {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.6s;
+}
+
+.properties-details-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.properties-details-slider img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  transform: scale(1.2);
+  transition: transform 0.8s ease-out;
+}
+
+.properties-details-slider.in-view img {
+  transform: scale(1);
+}
+
+@media (max-width: 1280px) {
+  .properties-details-section-padding {
+    padding-top: 98px;
+    padding-bottom: 150px;
+  }
+
+  .properties-details-inner {
+    gap: 56px;
+  }
+}
+
+@media (max-width: 991px) {
+  .properties-details-section-padding {
+    padding-top: 60px;
+    padding-bottom: 100px;
+  }
+
+  .properties-details-inner {
+    margin-bottom: 48px;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .properties-details-heading {
+    max-width: none;
+  }
+
+  .properties-details-heading h1 {
+    margin-bottom: 24px;
+  }
+
+  .properties-hero-buy-wrapper {
+    max-width: 720px;
+  }
+
+  .properties-hero-buy-wrapper p {
+    margin-bottom: 24px;
+  }
+
+  .properties-details-slider img {
+    border-radius: 10px;
+  }
+  .properties-details-heading h1 {
+    font-size: 72px;
+  }
+}
+
+@media (max-width: 770px) {
+  .properties-details-section-padding {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+
+  .properties-details-inner {
+    gap: 16px;
+  }
+
+  .properties-hero-details {
+    min-width: auto;
+  }
+
+  .properties-hero-buy-wrapper {
+    min-width: auto;
+  }
+
+  .properties-details-heading h1 {
+    font-size: 52px;
+  }
+
+  .properties-slider-arrow-left {
+    left: 30px;
+  }
+
+  .properties-slider-arrow-right {
+    right: 30px;
+  }
+
+  .properties-slider-arrow-left,
+  .properties-slider-arrow-right {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media (max-width: 479px) {
+  .properties-details-section-padding {
+    padding-top: 60px;
+  }
+
+  .properties-details-inner {
+    margin-bottom: 30px;
+  }
+
+  .properties-slider-arrow-left {
+    left: 10px;
+  }
+
+  .properties-slider-arrow-right {
+    right: 10px;
+  }
 }
