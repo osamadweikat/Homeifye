@@ -2,16 +2,20 @@ import { useEffect, useRef, useState } from "react";
 import "./navbar.css";
 import { navbarMenuIconStyles } from "./navbarMenuIconStyles";
 import LogoImage from "../../assets/images/logo.svg";
+import BrandLogoDark from "../../assets/images/brand-logo-dark.svg";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MenuIcon from "@mui/icons-material/Menu";
 import Sidebar from "../sidebar/Sidebar";
 import { Link } from "react-router-dom";
 import useReloadOnSameRoute from "../../hooks/useReloadOnSameRoute";
 
-export default function Navbar({ openDropdown, setOpenDropdown }) {
+export default function Navbar({
+  openDropdown,
+  setOpenDropdown,
+  variant = "dark",
+}) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const reloadIfSame = useReloadOnSameRoute();
-
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -20,26 +24,32 @@ export default function Navbar({ openDropdown, setOpenDropdown }) {
         setOpenDropdown(false);
       }
     }
-
     document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
+    return () => document.removeEventListener("click", handleClickOutside);
   }, [setOpenDropdown]);
 
   return (
-    <nav className="navbar">
+    <nav
+      className={`navbar ${
+        variant === "light" ? "navbar-light" : "navbar-dark"
+      }`}
+    >
       <div className="padding-section">
         <div className="container">
           <div className="navbar-inner">
             <Link to="/" onClick={() => reloadIfSame("/")}>
-              <img src={LogoImage} alt="logo" />
+              <img
+                src={variant === "light" ? BrandLogoDark : LogoImage}
+                alt="logo"
+              />
             </Link>
+
             <div className="navbar-menus">
               <ul className="navbar-menus-list">
                 <Link to="/" onClick={() => reloadIfSame("/")}>
                   <li className="navbar-item">Home</li>
                 </Link>
+
                 <Link
                   to="/properties"
                   onClick={(e) => {
@@ -49,8 +59,10 @@ export default function Navbar({ openDropdown, setOpenDropdown }) {
                 >
                   <li className="navbar-item">Properties</li>
                 </Link>
+
                 <li className="navbar-item">Contact Us</li>
               </ul>
+
               <div
                 className="navbar-drop-down"
                 ref={dropdownRef}
@@ -90,8 +102,13 @@ export default function Navbar({ openDropdown, setOpenDropdown }) {
               <MenuIcon
                 sx={navbarMenuIconStyles}
                 onClick={() => setIsSidebarOpen(true)}
+                className="navbar-menu-icon"
               />
-              <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
+              <Sidebar
+                isOpen={isSidebarOpen}
+                setIsOpen={setIsSidebarOpen}
+                variant={variant}
+              />
             </div>
           </div>
         </div>

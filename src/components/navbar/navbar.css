@@ -2,6 +2,63 @@
   background-color: var(--primary-color);
 }
 
+.navbar-dark {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.navbar-dark .navbar-item,
+.navbar-dark .navbar-drop-down,
+.navbar-dark .dropdown-link {
+  color: white;
+}
+
+.navbar-dark .navbar-btn {
+  border-color: white;
+  color: white;
+  background-color: transparent;
+}
+
+.navbar-dark .navbar-btn:hover {
+  background-color: white;
+  color: var(--primary-color);
+}
+
+.navbar-dark .dropdown-icon {
+  color: white;
+}
+
+.navbar-light {
+  background-color: white;
+  color: var(--primary-color);
+}
+
+.navbar-light .navbar-item,
+.navbar-light .navbar-drop-down,
+.navbar-light .dropdown-link {
+  color: var(--primary-color);
+}
+
+.navbar-light .navbar-item:hover,
+.navbar-light .dropdown-link:hover {
+  color: var(--secondary-color);
+}
+
+.navbar-light .navbar-btn {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: transparent;
+}
+
+.navbar-light .navbar-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.navbar-light .dropdown-icon {
+  color: var(--primary-color);
+}
+
 .padding-section {
   padding: 0 40px;
   margin: 0 auto;
@@ -46,7 +103,6 @@
 .navbar-menus-list li,
 .navbar-drop-down {
   font-size: 18px;
-  color: white;
   font-weight: 400;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -61,7 +117,6 @@
   align-items: center;
   gap: 10px;
   margin-left: 48px;
-  cursor: pointer;
   position: relative;
 }
 
@@ -100,7 +155,6 @@
 }
 
 .dropdown-link {
-  color: var(--primary-color);
   font-size: 18px;
   line-height: 133%;
   font-weight: 500;
@@ -132,20 +186,11 @@
   align-items: center;
   border-style: solid;
   border-width: 1px;
-  border-color: white;
-  background-color: transparent;
   border-radius: 99px;
-  transition-property: color, background-color;
-  color: white;
   font-size: 18px;
   font-weight: 500;
   transition: all 0.3s ease;
   cursor: pointer;
-}
-
-.navbar-btn:hover {
-  background-color: white;
-  color: var(--primary-color);
 }
 
 @media screen and (max-width: 1060px) {
@@ -201,6 +246,7 @@
   .container {
     padding: 0 25px;
   }
+
   .navbar-menus {
     display: flex;
     align-items: center;
@@ -214,6 +260,14 @@
     display: flex;
     align-items: center;
     gap: 8px;
+  }
+
+  .navbar-dark .navbar-menu-icon {
+    color: white;
+  }
+
+  .navbar-light .navbar-menu-icon {
+    color: var(--primary-color);
   }
 }
 
