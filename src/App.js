@@ -4,20 +4,20 @@ import Properties from "./pages/properties/Properties";
 import NotFound from "./pages/not-found/NotFound";
 import MainLayout from "./layouts/MainLayout";
 import PropertiesDetails from "./pages/properties-details/PropertiesDetails";
+import ScrollToTop from "./hooks/ScrollToTop";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route element={<MainLayout showFooter={true} theme="dark" />}>
           <Route path="/" element={<Home />} />
           <Route path="/properties" element={<Properties />} />
         </Route>
-
         <Route element={<MainLayout showFooter={true} theme="light" />}>
-          <Route path="/pd" element={<PropertiesDetails />} />
+          <Route path="/properties/:id" element={<PropertiesDetails />} />
         </Route>
-
         <Route element={<MainLayout showFooter={false} theme="dark" />}>
           <Route path="*" element={<NotFound />} />
         </Route>

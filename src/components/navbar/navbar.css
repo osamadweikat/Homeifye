@@ -8,9 +8,12 @@
 }
 
 .navbar-dark .navbar-item,
-.navbar-dark .navbar-drop-down,
-.navbar-dark .dropdown-link {
+.navbar-dark .navbar-drop-down {
   color: white;
+}
+
+.navbar-dark .dropdown-link {
+  color: var(--primary-color);
 }
 
 .navbar-dark .navbar-btn {

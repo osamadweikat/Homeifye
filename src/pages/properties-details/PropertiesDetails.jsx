@@ -3,26 +3,30 @@ import PropertyFeatureSection from "../../components/property-feature-section/Pr
 import PropertyInfoSection from "../../components/property-info-section/PropertyInfoSection";
 import PropertyPlanSection from "../../components/property-plan-section/PropertyPlanSection";
 import "./properties-details.css";
+import { useParams } from "react-router-dom";
 import { propertiesData } from "../../data/propertiesData";
 import NewListingInner from "../../components/new-listing-inner/NewListingInner";
 import useInViewObserver from "../../hooks/useInViewObserver";
 import GlobalCtaSection from "../../components/global-cta-section/GlobalCtaSection";
 
 export default function PropertiesDetails() {
-  const similarListings = propertiesData.slice(-3)
+  const { id } = useParams();
+  const property = propertiesData.find((p) => p.id.toString() === id);
 
-  useInViewObserver(
-      ".similar-listings-header h2",
-      { threshold: 0.3 },
-      true
-    );
+  const similarListings = property
+    ? propertiesData.filter((p) => property.similarProperties.includes(p.id))
+    : [];
+
+  useInViewObserver(".similar-listings-header h2", { threshold: 0.3 }, true);
 
   return (
     <div className="properties-details">
-      <PropertiesDetailsHeroSection />
+      <PropertiesDetailsHeroSection property={property} />
       <PropertyFeatureSection />
-      <PropertyInfoSection />
-      <PropertyPlanSection />
+      <PropertyInfoSection property={property} />
+      <PropertyPlanSection
+        floorPlanDescription={property.floorPlanDescription}
+      />
       <div className="similar-listings-header">
         <h2>Similar Listings</h2>
       </div>

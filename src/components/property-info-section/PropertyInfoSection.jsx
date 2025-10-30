@@ -1,10 +1,9 @@
 import { useState } from "react";
 import "./property-info-section.css";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import PropertyImage1 from "../../assets/images/property-image-1.avif";
 import useInViewObserver from "../../hooks/useInViewObserver";
 
-export default function PropertyInfoSection() {
+export default function PropertyInfoSection({ property }) {
   const [activeIndex, setActiveIndex] = useState(null);
 
   useInViewObserver(
@@ -35,17 +34,17 @@ export default function PropertyInfoSection() {
                     <div className="property-info-content-item-text">
                       <div className="property-info-content-item-group">
                         <span className="hyphen">
-                          <span>Bedroom: 3</span>
+                          <span>Bedroom: {property.bedrooms}</span>
                         </span>
                       </div>
                       <div className="property-info-content-item-group">
                         <span className="hyphen">
-                          <span>Bathroom: 2</span>
+                          <span>Bathroom: {property.bathrooms}</span>
                         </span>
                       </div>
                       <div className="property-info-content-item-group">
                         <span className="hyphen">
-                          <span>Kitchen: 1</span>
+                          <span>Kitchen: {property.kitchen}</span>
                         </span>
                       </div>
                     </div>
@@ -60,7 +59,7 @@ export default function PropertyInfoSection() {
                     <div className="property-info-content-item-text">
                       <div className="property-info-content-item-group">
                         <span className="hyphen">
-                          <span>Living area: 1600 Sq.Ft.</span>
+                          <span>Living area: {property.size}</span>
                         </span>
                       </div>
                     </div>
@@ -68,12 +67,12 @@ export default function PropertyInfoSection() {
                     <div className="property-info-content-item-text">
                       <div className="property-info-content-item-group">
                         <span className="hyphen">
-                          <span>Number of Floors: 2</span>
+                          <span>Number of Floors: {property.floors}</span>
                         </span>
                       </div>
                       <div className="property-info-content-item-group">
                         <span className="hyphen">
-                          <span>Number of Rooms: 6</span>
+                          <span>Number of Rooms: {property.rooms}</span>
                         </span>
                       </div>
                     </div>
@@ -88,7 +87,7 @@ export default function PropertyInfoSection() {
                     <div className="property-info-content-item-text">
                       <div className="property-info-content-item-group">
                         <span className="hyphen">
-                          <span>Total Land Area: 3500 Sq.Ft.</span>
+                          <span>Total Land Area: {property.totalArea}</span>
                         </span>
                       </div>
                     </div>
@@ -103,7 +102,7 @@ export default function PropertyInfoSection() {
                     <div className="property-info-content-item-text">
                       <div className="property-info-content-item-group">
                         <span className="hyphen">
-                          <span>Established Since: 2012</span>
+                          <span>Established Since: {property.yearBuilt}</span>
                         </span>
                       </div>
                     </div>
@@ -136,7 +135,7 @@ export default function PropertyInfoSection() {
           </div>
 
           <div className="property-info-image-wrapper">
-            <img src={PropertyImage1} alt="property-image1" />
+            <img src={property.img} alt="property-image1" />
           </div>
         </div>
       </div>

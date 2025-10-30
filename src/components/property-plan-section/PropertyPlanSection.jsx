@@ -3,7 +3,7 @@ import "./property-plan-section.css";
 import RightArrow from "../../assets/images/right arrow.svg";
 import MapImage from "../../assets/images/maps.avif";
 
-export default function PropertyPlanSection() {
+export default function PropertyPlanSection({ floorPlanDescription }) {
   useInViewObserver(
     ".property-plan-heading h2, .property-plan-header p, .property-plan-header button, .property-plan-image-wrapper",
     { threshold: 0.3 },
@@ -17,13 +17,7 @@ export default function PropertyPlanSection() {
           <div className="property-plan-heading">
             <h2>Property Floor Plan</h2>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            varius enim in eros elementum tristique. Duis cursus, mi quis
-            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
-            vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem
-            imperdiet. Nunc ut sem vitae risus tristique posuere.
-          </p>
+          <p>{floorPlanDescription}</p>
           <button>
             Download Plan <img src={RightArrow} alt="arrow" />
           </button>

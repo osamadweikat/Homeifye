@@ -10,7 +10,7 @@ import Slider4 from "../../assets/images/slider-4.avif";
 import Slider5 from "../../assets/images/slider-5avif.avif";
 import useInViewObserver from "../../hooks/useInViewObserver";
 
-export default function PropertiesDetailsHeroSection() {
+export default function PropertiesDetailsHeroSection({ property }) {
   useInViewObserver(".observe-fade", {}, true);
   useInViewObserver(".observe-image", {}, true);
 
@@ -34,25 +34,23 @@ export default function PropertiesDetailsHeroSection() {
         <div className="properties-details-inner">
           <div className="properties-hero-details">
             <div className="properties-details-heading observe-fade">
-              <h1>Cedar Park</h1>
+              <h1>{property.name}</h1>
             </div>
             <div className="properties-details-info observe-fade">
-              <div className="properties-details-price">$290000 USD</div>
+              <div className="properties-details-price">
+                {property.price} USD
+              </div>
               <div className="properties-details-items">
-                <span>3 Bedroom</span>
-                <span>2 Bathrooms</span>
-                <span>1 Kitchen</span>
-                <span>1600 Sq.Ft.</span>
+                <span>{property.bedrooms} Bedroom</span>
+                <span>{property.bathrooms} Bathrooms</span>
+                <span>{property.kitchen} Kitchen</span>
+                <span>{property.size} Sq.Ft.</span>
               </div>
             </div>
           </div>
 
           <div className="properties-hero-buy-wrapper">
-            <p className="observe-fade">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-              aliquam pulvinar gravida. Vestibulum porttitor ex eu nulla
-              condimentum, fringilla aliquet arcu pharetra. Integer bibendum mi.
-            </p>
+            <p className="observe-fade">{property.description}</p>
             <button className="observe-fade">
               Contact Us <img src={RightArrow} alt="arrow" />
             </button>
