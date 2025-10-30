@@ -1,6 +1,7 @@
 import PropertiesDetailsHeroSection from "../../components/properties-details-hero-section/PropertiesDetailsHeroSection";
 import PropertyFeatureSection from "../../components/property-feature-section/PropertyFeatureSection";
 import PropertyInfoSection from "../../components/property-info-section/PropertyInfoSection";
+import PropertyPlanSection from "../../components/property-plan-section/PropertyPlanSection";
 import "./properties-details.css";
 
 export default function PropertiesDetails() {
@@ -9,6 +10,7 @@ export default function PropertiesDetails() {
       <PropertiesDetailsHeroSection />
       <PropertyFeatureSection />
       <PropertyInfoSection />
+      <PropertyPlanSection />
     </div>
   );
 }
