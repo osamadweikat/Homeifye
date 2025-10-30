@@ -1,0 +1,76 @@
+.property-plan-section-padding {
+  padding: 120px 40px;
+  background-color: var(--primary-color);
+}
+
+.property-plan-section-container {
+  text-align: center;
+}
+
+.property-plan-header {
+  display: flex;
+  margin-bottom: 60px;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.property-plan-heading {
+  overflow: hidden;
+}
+
+.property-plan-heading h2 {
+  margin-bottom: 20px;
+  font-size: 70px;
+  font-weight: 500;
+  color: white;
+}
+
+.property-plan-header p {
+  max-width: 555px;
+  margin-bottom: 32px;
+  font-size: 18px;
+  font-weight: 400;
+  color: white;
+  line-height: 1.6;
+}
+
+.property-plan-header button {
+  display: inline-flex;
+  height: 52px;
+  padding: 15px 30px;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid var(--secondary-color);
+  border-radius: 99px;
+  background-color: var(--transparent);
+  transition: all 0.4s ease;
+  color: var(--secondary-color);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.property-plan-header button img {
+  width: 22px;
+  height: 22px;
+  margin-left: 10px;
+  filter: invert(51%) sepia(94%) saturate(2048%) hue-rotate(359deg)
+    brightness(100%) contrast(104%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.property-plan-header button:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.property-plan-header button:hover img {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(141deg)
+    brightness(106%) contrast(101%);
+  transform: translateX(4px);
+}
+
+.property-plan-image-wrapper img {
+  width: 100%;
+  height: 100%;
+}

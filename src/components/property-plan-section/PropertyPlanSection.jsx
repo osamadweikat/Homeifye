@@ -11,10 +11,11 @@ export default function PropertyPlanSection() {
             <h2>Property Floor Plan</h2>
           </div>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-            impedit aliquid neque reiciendis atque, similique sint ad itaque
-            distinctio voluptatibus deserunt expedita quos voluptate rem est.
-            Molestias dignissimos consequatur et.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique. Duis cursus, mi quis
+            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+            vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem
+            imperdiet. Nunc ut sem vitae risus tristique posuere.
           </p>
           <button>
             Download Plan <img src={RightArrow} alt="arrow" />
