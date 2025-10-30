@@ -1,0 +1,49 @@
+.similar-listings-header {
+    padding-top: 120px;
+    padding-right: 40px;
+    padding-left: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -90PX;
+}
+
+.similar-listings-header h2 {
+    font-size: 70px;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.similar-listings-header h2 {
+    opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.similar-listings-header h2.in-view {
+    opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 990px) {
+    .similar-listings-header {
+        justify-content: flex-start;
+        margin-bottom: -50px;
+    }
+
+    .similar-listings-header h2 {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 470px) {
+    .similar-listings-header {
+        margin-bottom: -20px;
+        padding-left: 16px;
+        padding-top: 60px;
+    }
+
+    .similar-listings-header h2 {
+        font-size: 35px;
+    }
+}
