@@ -2,9 +2,16 @@ import { useState } from "react";
 import "./property-info-section.css";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import PropertyImage1 from "../../assets/images/property-image-1.avif";
+import useInViewObserver from "../../hooks/useInViewObserver";
 
 export default function PropertyInfoSection() {
   const [activeIndex, setActiveIndex] = useState(null);
+
+  useInViewObserver(
+    ".property-info-heading, .property-info-content-item, .property-info-image-wrapper",
+    { threshold: 0.3 },
+    true
+  );
 
   const toggleAccordion = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -16,23 +23,14 @@ export default function PropertyInfoSection() {
         <div className="property-info-heading">
           <h2>Property Details</h2>
         </div>
+
         <div className="property-info-content">
           <div className="property-info-content-wrapper">
-            <div
-              className={`property-info-content-item ${
-                activeIndex === 0 ? "active" : ""
-              }`}
-            >
-              <div
-                className="property-info-content-item-label"
-                onClick={() => toggleAccordion(0)}
-              >
-                <h3>Interior Details</h3>
-                <ExpandMoreIcon />
-              </div>
-              <div className="property-info-content-item-pane">
-                <div className="property-info-content-item-speciification">
-                  <div className="property-info-content-item-body">
+            {[
+              {
+                title: "Interior Details",
+                content: (
+                  <>
                     <h6>Rooms details</h6>
                     <div className="property-info-content-item-text">
                       <div className="property-info-content-item-group">
@@ -51,25 +49,13 @@ export default function PropertyInfoSection() {
                         </span>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className={`property-info-content-item ${
-                activeIndex === 1 ? "active" : ""
-              }`}
-            >
-              <div
-                className="property-info-content-item-label"
-                onClick={() => toggleAccordion(1)}
-              >
-                <h3>Property Size</h3>
-                <ExpandMoreIcon />
-              </div>
-              <div className="property-info-content-item-pane">
-                <div className="property-info-content-item-speciification">
-                  <div className="property-info-content-item-body">
+                  </>
+                ),
+              },
+              {
+                title: "Property Size",
+                content: (
+                  <>
                     <h6>Property Area</h6>
                     <div className="property-info-content-item-text">
                       <div className="property-info-content-item-group">
@@ -78,10 +64,6 @@ export default function PropertyInfoSection() {
                         </span>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div className="property-info-content-item-speciification">
-                  <div className="property-info-content-item-body">
                     <h6>Structures</h6>
                     <div className="property-info-content-item-text">
                       <div className="property-info-content-item-group">
@@ -95,25 +77,13 @@ export default function PropertyInfoSection() {
                         </span>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className={`property-info-content-item ${
-                activeIndex === 2 ? "active" : ""
-              }`}
-            >
-              <div
-                className="property-info-content-item-label"
-                onClick={() => toggleAccordion(2)}
-              >
-                <h3>Land Area</h3>
-                <ExpandMoreIcon />
-              </div>
-              <div className="property-info-content-item-pane">
-                <div className="property-info-content-item-speciification">
-                  <div className="property-info-content-item-body">
+                  </>
+                ),
+              },
+              {
+                title: "Land Area",
+                content: (
+                  <>
                     <h6>Dimensions & Layout</h6>
                     <div className="property-info-content-item-text">
                       <div className="property-info-content-item-group">
@@ -122,25 +92,13 @@ export default function PropertyInfoSection() {
                         </span>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className={`property-info-content-item ${
-                activeIndex === 3 ? "active" : ""
-              }`}
-            >
-              <div
-                className="property-info-content-item-label"
-                onClick={() => toggleAccordion(3)}
-              >
-                <h3>Year Build</h3>
-                <ExpandMoreIcon />
-              </div>
-              <div className="property-info-content-item-pane">
-                <div className="property-info-content-item-speciification">
-                  <div className="property-info-content-item-body">
+                  </>
+                ),
+              },
+              {
+                title: "Year Build",
+                content: (
+                  <>
                     <h6>Since</h6>
                     <div className="property-info-content-item-text">
                       <div className="property-info-content-item-group">
@@ -149,11 +107,34 @@ export default function PropertyInfoSection() {
                         </span>
                       </div>
                     </div>
+                  </>
+                ),
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className={`property-info-content-item ${
+                  activeIndex === index ? "active" : ""
+                }`}
+              >
+                <div
+                  className="property-info-content-item-label"
+                  onClick={() => toggleAccordion(index)}
+                >
+                  <h3>{item.title}</h3>
+                  <ExpandMoreIcon />
+                </div>
+                <div className="property-info-content-item-pane">
+                  <div className="property-info-content-item-speciification">
+                    <div className="property-info-content-item-body">
+                      {item.content}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
+
           <div className="property-info-image-wrapper">
             <img src={PropertyImage1} alt="property-image1" />
           </div>

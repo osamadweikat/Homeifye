@@ -1,6 +1,8 @@
 .property-feature-padding {
   padding: 120px 40px;
   background-color: var(--primary-color);
+  position: relative;
+  z-index: 1;
 }
 
 .property-feature-container {
