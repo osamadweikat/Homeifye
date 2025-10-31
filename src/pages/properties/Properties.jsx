@@ -1,96 +1,79 @@
 import "./properties.css";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import PropertiesHeroSection from "../../components/properties-hero-section/PropertiesHeroSection";
 import NewListingInner from "../../components/new-listing-inner/NewListingInner";
+import GlobalCtaSection from "../../components/global-cta-section/GlobalCtaSection";
 import { propertiesData } from "../../data/propertiesData";
+import useFilteredProperties from "../../hooks/useFilteredProperties";
+import usePagination from "../../hooks/usePagination";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
-import GlobalCtaSection from "../../components/global-cta-section/GlobalCtaSection";
-import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Properties() {
-  const itemsPerPage = 6;
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [searchTerm, setSearchTerm] = useState("");
-  const [propertyType, setPropertyType] = useState("");
-  const [locationFilter, setLocationFilter] = useState("");
-  const [transactionType, setTransactionType] = useState("");
-  const [page, setPage] = useState(1);
+  const [filters, setFilters] = useState({
+    searchTerm: "",
+    propertyType: "",
+    locationFilter: "",
+    transactionType: "",
+  });
+
   const [isForward, setIsForward] = useState(true);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-
-    if (!location.search) {
-      setSearchTerm("");
-      setPropertyType("");
-      setLocationFilter("");
-      setTransactionType("");
-      setPage(1);
-    } else {
-      setSearchTerm(params.get("search") || "");
-      setPropertyType(params.get("properties") || "");
-      setLocationFilter(params.get("location") || "");
-      setTransactionType(params.get("types") || "");
-      setPage(1);
-    }
+    setFilters({
+      searchTerm: params.get("search") || "",
+      propertyType: params.get("properties") || "",
+      locationFilter: params.get("location") || "",
+      transactionType: params.get("types") || "",
+    });
+    setIsForward(true);
   }, [location.search]);
 
-  const filteredProperties = propertiesData.filter((p) => {
-    const matchesSearch =
-      !searchTerm ||
-      p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      p.loc.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      p.description.toLowerCase().includes(searchTerm.toLowerCase());
+  const filteredProperties = useFilteredProperties(propertiesData, filters);
+  const {
+    page,
+    totalPages,
+    displayedItems,
+    isFirstPage,
+    isLastPage,
+    nextPage,
+    prevPage,
+    resetPage,
+  } = usePagination(filteredProperties, 6);
 
-    const matchesPropertyType =
-      !propertyType || p.type.toLowerCase() === propertyType.toLowerCase();
+  const handleSearch = (
+    newSearchTerm,
+    newPropertyType,
+    newLocation,
+    newTransaction
+  ) => {
+    const params = new URLSearchParams();
+    if (newSearchTerm) params.set("search", newSearchTerm);
+    if (newPropertyType) params.set("properties", newPropertyType);
+    if (newLocation) params.set("location", newLocation);
+    if (newTransaction) params.set("types", newTransaction);
 
-    const matchesLocation =
-      !locationFilter || p.city.toLowerCase() === locationFilter.toLowerCase();
+    navigate(`/properties?${params.toString()}`, { replace: true });
+  };
 
-    const matchesTransaction =
-      !transactionType ||
-      p.transactionType.toLowerCase() === transactionType.toLowerCase();
-
-    return (
-      matchesSearch &&
-      matchesPropertyType &&
-      matchesLocation &&
-      matchesTransaction
-    );
-  });
-
-  const totalItems = filteredProperties.length;
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
-
-  const displayedProperties = filteredProperties.slice(
-    (page - 1) * itemsPerPage,
-    page * itemsPerPage
-  );
-
-  const isFirstPage = page === 1;
-  const isLastPage = page === totalPages;
-
-  useEffect(() => {
-    if (isLastPage) setIsForward(false);
-    if (isFirstPage) setIsForward(true);
-  }, [page, isFirstPage, isLastPage]);
+  const resetSearch = () => {
+    navigate("/properties", { replace: true });
+    resetPage();
+    setIsForward(true);
+  };
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [page]);
 
-  const handleClick = () => {
-    if (isForward) {
-      if (!isLastPage) setPage((prev) => prev + 1);
-    } else {
-      if (!isFirstPage) setPage((prev) => prev - 1);
-    }
-  };
+    if (isLastPage) setIsForward(false);
+    if (isFirstPage) setIsForward(true);
+  }, [page, isFirstPage, isLastPage]);
 
   const buttonContent = isForward ? (
     <>
@@ -102,36 +85,21 @@ export default function Properties() {
     </>
   );
 
+  const handleClick = () => {
+    if (isForward && !isLastPage) {
+      nextPage();
+    } else if (!isForward && !isFirstPage) {
+      prevPage();
+    }
+  };
+
   const titleText =
-    searchTerm || propertyType || locationFilter || transactionType
+    filters.searchTerm ||
+    filters.propertyType ||
+    filters.locationFilter ||
+    filters.transactionType
       ? "Search Results"
       : "Properties";
-
-  const handleSearch = (
-    newSearchTerm,
-    newPropertyType,
-    newLocation,
-    newTransaction
-  ) => {
-    const params = new URLSearchParams();
-
-    if (newSearchTerm) params.set("search", newSearchTerm);
-    if (newPropertyType) params.set("properties", newPropertyType);
-    if (newLocation) params.set("location", newLocation);
-    if (newTransaction) params.set("types", newTransaction);
-
-    navigate(`/properties?${params.toString()}`, { replace: true });
-  };
-
-  const resetSearch = () => {
-    setSearchTerm("");
-    setPropertyType("");
-    setLocationFilter("");
-    setTransactionType("");
-    setPage(1);
-
-    navigate("/properties", { replace: true });
-  };
 
   return (
     <div className="properties-page">
@@ -141,15 +109,15 @@ export default function Properties() {
         onReset={resetSearch}
       />
 
-      {totalItems > 0 ? (
+      {filteredProperties.length > 0 ? (
         <>
-          <NewListingInner variant="properties" data={displayedProperties} />
+          <NewListingInner variant="properties" data={displayedItems} />
           {totalPages > 1 && (
             <div className="pagination-buttons">
               <button
                 className="pagination-btn"
                 onClick={handleClick}
-                disabled={totalPages <= 1}
+                disabled={isFirstPage && !isForward}
               >
                 {buttonContent}
               </button>

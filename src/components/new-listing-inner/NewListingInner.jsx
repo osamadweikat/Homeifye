@@ -1,9 +1,8 @@
 import "./new-listing-inner.css";
-import NorthEastIcon from "@mui/icons-material/NorthEast";
 import RightArrow from "../../assets/images/right arrow.svg";
 import { propertiesData } from "../../data/propertiesData";
 import useInViewObserver from "../../hooks/useInViewObserver";
-import { Link } from "react-router-dom";
+import PropertyItem from "./PropertyItem";
 
 export default function NewListingInner({ variant = "home", data }) {
   const isHome = variant === "home";
@@ -28,27 +27,8 @@ export default function NewListingInner({ variant = "home", data }) {
 
       <div className="collection-list-wrapper">
         <div className="property-items">
-          {displayedProperties.map((p) => (
-            <Link key={p.id} to={`/properties/${p.id}`}>
-              <div className="property-item">
-                <div className="property-image-wrapper animate-on-scroll scale-up">
-                  <img src={p.img} alt={p.name} />
-                  <div className="icon-wrapper">
-                    <NorthEastIcon />
-                  </div>
-                </div>
-                <div className="property-details animate-on-scroll fade-up">
-                  <div className="property-details-top-row">
-                    <h3 className="property-name">{p.name}</h3>
-                    <h3 className="property-price">{p.price}</h3>
-                  </div>
-                  <div className="property-details-bottom-row">
-                    <span className="property-location">{p.loc}</span>
-                    <span className="property-size">{p.size}</span>
-                  </div>
-                </div>
-              </div>
-            </Link>
+          {displayedProperties.map((property) => (
+            <PropertyItem key={property.id} property={property} />
           ))}
         </div>
       </div>

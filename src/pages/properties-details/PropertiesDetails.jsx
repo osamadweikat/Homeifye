@@ -1,12 +1,12 @@
+import "./properties-details.css";
+import { useParams } from "react-router-dom";
+import { propertiesData } from "../../data/propertiesData";
+import useInViewObserver from "../../hooks/useInViewObserver";
 import PropertiesDetailsHeroSection from "../../components/properties-details-hero-section/PropertiesDetailsHeroSection";
 import PropertyFeatureSection from "../../components/property-feature-section/PropertyFeatureSection";
 import PropertyInfoSection from "../../components/property-info-section/PropertyInfoSection";
 import PropertyPlanSection from "../../components/property-plan-section/PropertyPlanSection";
-import "./properties-details.css";
-import { useParams } from "react-router-dom";
-import { propertiesData } from "../../data/propertiesData";
 import NewListingInner from "../../components/new-listing-inner/NewListingInner";
-import useInViewObserver from "../../hooks/useInViewObserver";
 import GlobalCtaSection from "../../components/global-cta-section/GlobalCtaSection";
 
 export default function PropertiesDetails() {

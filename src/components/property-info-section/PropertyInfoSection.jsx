@@ -22,14 +22,23 @@ export default function PropertyInfoSection({ property }) {
         <div className="property-info-heading">
           <h2>Property Details</h2>
         </div>
-
         <div className="property-info-content">
           <div className="property-info-content-wrapper">
-            {[
-              {
-                title: "Interior Details",
-                content: (
-                  <>
+            <div
+              className={`property-info-content-item ${
+                activeIndex === 0 ? "active" : ""
+              }`}
+            >
+              <div
+                className="property-info-content-item-label"
+                onClick={() => toggleAccordion(0)}
+              >
+                <h3>Interior Details</h3>
+                <ExpandMoreIcon />
+              </div>
+              <div className="property-info-content-item-pane">
+                <div className="property-info-content-item-speciification">
+                  <div className="property-info-content-item-body">
                     <h6>Rooms details</h6>
                     <div className="property-info-content-item-text">
                       <div className="property-info-content-item-group">
@@ -48,13 +57,25 @@ export default function PropertyInfoSection({ property }) {
                         </span>
                       </div>
                     </div>
-                  </>
-                ),
-              },
-              {
-                title: "Property Size",
-                content: (
-                  <>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className={`property-info-content-item ${
+                activeIndex === 1 ? "active" : ""
+              }`}
+            >
+              <div
+                className="property-info-content-item-label"
+                onClick={() => toggleAccordion(1)}
+              >
+                <h3>Property Size</h3>
+                <ExpandMoreIcon />
+              </div>
+              <div className="property-info-content-item-pane">
+                <div className="property-info-content-item-speciification">
+                  <div className="property-info-content-item-body">
                     <h6>Property Area</h6>
                     <div className="property-info-content-item-text">
                       <div className="property-info-content-item-group">
@@ -63,6 +84,8 @@ export default function PropertyInfoSection({ property }) {
                         </span>
                       </div>
                     </div>
+                  </div>
+                  <div className="property-info-content-item-body">
                     <h6>Structures</h6>
                     <div className="property-info-content-item-text">
                       <div className="property-info-content-item-group">
@@ -76,13 +99,25 @@ export default function PropertyInfoSection({ property }) {
                         </span>
                       </div>
                     </div>
-                  </>
-                ),
-              },
-              {
-                title: "Land Area",
-                content: (
-                  <>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className={`property-info-content-item ${
+                activeIndex === 2 ? "active" : ""
+              }`}
+            >
+              <div
+                className="property-info-content-item-label"
+                onClick={() => toggleAccordion(2)}
+              >
+                <h3>Land Area</h3>
+                <ExpandMoreIcon />
+              </div>
+              <div className="property-info-content-item-pane">
+                <div className="property-info-content-item-speciification">
+                  <div className="property-info-content-item-body">
                     <h6>Dimensions & Layout</h6>
                     <div className="property-info-content-item-text">
                       <div className="property-info-content-item-group">
@@ -91,13 +126,25 @@ export default function PropertyInfoSection({ property }) {
                         </span>
                       </div>
                     </div>
-                  </>
-                ),
-              },
-              {
-                title: "Year Build",
-                content: (
-                  <>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className={`property-info-content-item ${
+                activeIndex === 3 ? "active" : ""
+              }`}
+            >
+              <div
+                className="property-info-content-item-label"
+                onClick={() => toggleAccordion(3)}
+              >
+                <h3>Year Build</h3>
+                <ExpandMoreIcon />
+              </div>
+              <div className="property-info-content-item-pane">
+                <div className="property-info-content-item-speciification">
+                  <div className="property-info-content-item-body">
                     <h6>Since</h6>
                     <div className="property-info-content-item-text">
                       <div className="property-info-content-item-group">
@@ -106,34 +153,11 @@ export default function PropertyInfoSection({ property }) {
                         </span>
                       </div>
                     </div>
-                  </>
-                ),
-              },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className={`property-info-content-item ${
-                  activeIndex === index ? "active" : ""
-                }`}
-              >
-                <div
-                  className="property-info-content-item-label"
-                  onClick={() => toggleAccordion(index)}
-                >
-                  <h3>{item.title}</h3>
-                  <ExpandMoreIcon />
-                </div>
-                <div className="property-info-content-item-pane">
-                  <div className="property-info-content-item-speciification">
-                    <div className="property-info-content-item-body">
-                      {item.content}
-                    </div>
                   </div>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
-
           <div className="property-info-image-wrapper">
             <img src={property.img} alt="property-image1" />
           </div>

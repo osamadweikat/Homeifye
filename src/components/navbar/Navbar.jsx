@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import MenuIcon from "@mui/icons-material/Menu";
 import "./navbar.css";
 import { navbarMenuIconStyles } from "./navbarMenuIconStyles";
 import LogoImage from "../../assets/images/logo.svg";
 import BrandLogoDark from "../../assets/images/brand-logo-dark.svg";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MenuIcon from "@mui/icons-material/Menu";
+import NavbarDropdown from "./NavbarDropdown";
 import Sidebar from "../sidebar/Sidebar";
-import { Link } from "react-router-dom";
 import useReloadOnSameRoute from "../../hooks/useReloadOnSameRoute";
 
 export default function Navbar({
@@ -43,67 +43,45 @@ export default function Navbar({
                 alt="logo"
               />
             </Link>
-
             <div className="navbar-menus">
               <ul className="navbar-menus-list">
-                <Link to="/" onClick={() => reloadIfSame("/")}>
-                  <li className="navbar-item">Home</li>
-                </Link>
+                <li className="navbar-item">
+                  <Link to="/" onClick={() => reloadIfSame("/")}>
+                    Home
+                  </Link>
+                </li>
 
-                <Link
-                  to="/properties"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.location.href = "/properties";
-                  }}
-                >
-                  <li className="navbar-item">Properties</li>
-                </Link>
+                <li className="navbar-item">
+                  <Link
+                    to="/properties"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = "/properties";
+                    }}
+                  >
+                    Properties
+                  </Link>
+                </li>
 
-                <li className="navbar-item">Contact Us</li>
+                <li className="navbar-item">
+                  <Link to="/contact">Contact Us</Link>
+                </li>
               </ul>
-
-              <div
-                className="navbar-drop-down"
-                ref={dropdownRef}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setOpenDropdown(!openDropdown);
-                }}
-              >
-                Pages{" "}
-                <ExpandMoreIcon
-                  className={`dropdown-icon ${openDropdown ? "rotate" : ""}`}
-                  sx={{ fontSize: "22px" }}
-                />
-                <div
-                  className={`navbar-dropdown-list ${
-                    openDropdown ? "open" : ""
-                  }`}
-                >
-                  <div className="navbar-dropdown-list-inner">
-                    <div className="dropdown-link-column">
-                      <p className="dropdown-link">Properties</p>
-                      <p className="dropdown-link">Properties Details</p>
-                      <p className="dropdown-link">Contact Us</p>
-                    </div>
-                    <div className="dropdown-link-column">
-                      <p className="dropdown-link">Style Guides</p>
-                      <p className="dropdown-link">Licenses</p>
-                      <p className="dropdown-link">Changelog</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <NavbarDropdown
+                open={openDropdown}
+                setOpen={setOpenDropdown}
+                dropdownRef={dropdownRef}
+              />
             </div>
-
             <div className="navbar-actions">
               <button className="navbar-btn">Get for Free</button>
+
               <MenuIcon
                 sx={navbarMenuIconStyles}
                 onClick={() => setIsSidebarOpen(true)}
                 className="navbar-menu-icon"
               />
+
               <Sidebar
                 isOpen={isSidebarOpen}
                 setIsOpen={setIsSidebarOpen}

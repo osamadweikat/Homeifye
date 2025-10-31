@@ -13,16 +13,8 @@ export default function PropertiesHeroSection() {
   const locationFilter = queryParams.get("location");
   const types = queryParams.get("types");
 
-  let title = "Properties";
-  if (search) {
-    title = search;
-  } else if (properties) {
-    title = properties;
-  } else if (locationFilter) {
-    title = locationFilter;
-  } else if (types) {
-    title = types;
-  }
+  let title = search || properties || locationFilter || types || "Properties";
+
 
   return (
     <div className="properties-hero-section">
