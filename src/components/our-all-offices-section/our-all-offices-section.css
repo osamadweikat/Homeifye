@@ -1,0 +1,95 @@
+.our-all-offices-section-padding {
+  padding: 120px 40px;
+}
+
+.our-offices-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.our-offices-header {
+  display: flex;
+  margin-bottom: 60px;
+  justify-content: center;
+  align-items: center;
+}
+
+.our-offices-header h2 {
+  padding-bottom: 5px;
+  font-size: 70px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.our-offices-content {
+  display: grid;
+  grid-auto-columns: 1fr;
+  gap: 40px 30px;
+  grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr) minmax(
+      200px,
+      1fr
+    );
+  grid-template-rows: auto;
+}
+
+.our-offices-card-img {
+  overflow: hidden;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 66%;
+  justify-content: center;
+  align-items: center;
+}
+
+.our-offices-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.our-offices-card-details h3 {
+  margin-bottom: 24px;
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.our-offices-card-details-location {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  grid-auto-columns: 1fr;
+  gap: 16px 70px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-rows: auto;
+  font-weight: 500;
+}
+
+.our-offices-card-details-location p {
+  max-width: 150px;
+  color: var(--primary-color);
+  flex: 1 1 0%;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.our-offices-card-details-contact {
+  flex: 1 1 0%;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.our-offices-card-details-contact span {
+  display: flex;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.our-offices-card-details-contact span:hover {
+  color: var(--secondary-color);
+}
