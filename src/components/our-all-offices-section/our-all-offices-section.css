@@ -93,3 +93,217 @@
 .our-offices-card-details-contact span:hover {
   color: var(--secondary-color);
 }
+
+.animate-on-scroll {
+  opacity: 0;
+  will-change: opacity, transform, clip-path;
+}
+
+.animate-on-scroll.in-view {
+  opacity: 1;
+}
+
+@keyframes revealClip {
+  0% {
+    clip-path: inset(50% 0 0 0);
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+.scale-up img {
+  clip-path: inset(50% 0 0 0);
+  opacity: 0;
+}
+
+.scale-up.in-view img {
+  animation: revealClip 1.5s cubic-bezier(0.25, 1, 0.3, 1) forwards;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(55px);
+  will-change: opacity, transform;
+}
+
+.fade-up.in-view {
+  animation: fadeUpSmooth 1.4s cubic-bezier(0.25, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeUpSmooth {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1400px) {
+  .our-all-offices-section-padding {
+    padding: 100px 30px;
+  }
+
+  .our-offices-header h2 {
+    font-size: 60px;
+  }
+
+  .our-offices-card-details h3 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .our-offices-content {
+    gap: 30px 20px;
+  }
+
+  .our-offices-card-details-location {
+    gap: 16px 40px;
+  }
+
+  .our-offices-card-details h3 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .our-offices-header h2 {
+    font-size: 52px;
+  }
+
+  .our-offices-content {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 990px) {
+  .our-all-offices-section-padding {
+    padding: 90px 25px;
+  }
+
+  .our-offices-header h2 {
+    font-size: 46px;
+  }
+
+  .our-offices-card-details h3 {
+    font-size: 22px;
+  }
+
+  .our-offices-card-details-location {
+    gap: 16px 30px;
+  }
+}
+
+@media (max-width: 770px) {
+  .our-offices-content {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .our-offices-header {
+    margin-bottom: 40px;
+  }
+
+  .our-offices-header h2 {
+    font-size: 40px;
+  }
+
+  .our-offices-card-details-location {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .our-offices-card-details-location p,
+  .our-offices-card-details-contact {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 470px) {
+  .our-all-offices-section-padding {
+    padding: 70px 20px;
+  }
+
+  .our-offices-header h2 {
+    font-size: 32px;
+  }
+
+  .our-offices-card-details h3 {
+    font-size: 20px;
+  }
+
+  .our-offices-card-details-location p,
+  .our-offices-card-details-contact {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 380px) {
+  .our-all-offices-section-padding {
+    padding: 60px 18px;
+  }
+
+  .our-offices-header h2 {
+    font-size: 28px;
+  }
+
+  .our-offices-card-details h3 {
+    font-size: 18px;
+  }
+
+  .our-offices-card-details-location p,
+  .our-offices-card-details-contact {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .our-offices-card-details-location {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  .our-all-offices-section-padding {
+    padding: 50px 16px;
+  }
+
+  .our-offices-header h2 {
+    font-size: 24px;
+  }
+
+  .our-offices-card-details h3 {
+    font-size: 17px;
+  }
+
+  .our-offices-card-details-location p,
+  .our-offices-card-details-contact {
+    font-size: 13px;
+  }
+
+  .our-offices-card-details-location {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 1100px) and (min-width: 771px) {
+  .our-offices-card-details-location {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .our-offices-card-details-contact {
+    text-align: right;
+  }
+
+  .our-offices-card-details-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}

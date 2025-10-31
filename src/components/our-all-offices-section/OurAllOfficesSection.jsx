@@ -1,65 +1,34 @@
 import "./our-all-offices-section.css";
-import OurOfficesImage1 from "../../assets/images/our-office-image-1.webp";
-import OurOfficesImage2 from "../../assets/images/our-office-image-2.webp";
-import OurOfficesImage3 from "../../assets/images/our-office-image-3.webp";
+import { officesData } from "../../data/officesData";
+import useInViewObserver from "../../hooks/useInViewObserver";
 
 export default function OurAllOfficesSection() {
+  useInViewObserver(".animate-on-scroll", { threshold: 0.3 }, true);
+
   return (
     <div className="our-all-offices-section-padding">
       <div className="our-offices-container">
-        <div className="our-offices-header">
+        <div className="our-offices-header animate-on-scroll fade-up">
           <h2>Our All Offices</h2>
         </div>
         <div className="our-offices-content">
-          <div className="our-offices-content-card">
-            <div className="our-offices-card-img">
-              <img src={OurOfficesImage1} alt="our-offices-img1" />
-            </div>
-            <div className="our-offices-card-details">
-              <h3>California</h3>
-              <div className="our-offices-card-details-location">
-                <p>
-                  123 Main Street, Apt 401 Los Angeles, CA 90001 United States
-                </p>
-                <div className="our-offices-card-details-contact">
-                  <span>+44 (0)20 7608 7900</span>
-                  <span>info@wilkinsoneyre.com</span>
+          {officesData.map((office, index) => (
+            <div className="our-offices-content-card" key={index}>
+              <div className="our-offices-card-img animate-on-scroll scale-up">
+                <img src={office.image} alt={`our-offices-img-${index + 1}`} />
+              </div>
+              <div className="our-offices-card-details">
+                <h3 className="animate-on-scroll fade-up">{office.city}</h3>
+                <div className="our-offices-card-details-location animate-on-scroll fade-up">
+                  <p>{office.address}</p>
+                  <div className="our-offices-card-details-contact">
+                    <span>{office.phone}</span>
+                    <span>{office.email}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="our-offices-content-card">
-            <div className="our-offices-card-img">
-              <img src={OurOfficesImage2} alt="our-offices-img2" />
-            </div>
-            <div className="our-offices-card-details">
-              <h3>New York</h3>
-              <div className="our-offices-card-details-location">
-                <p>55 Broadway, Suite 302 New York, NY 10006 United States</p>
-                <div className="our-offices-card-details-contact">
-                  <span>+44 (0)20 7608 7921</span>
-                  <span>info@wilkinsoneyre.com</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="our-offices-content-card">
-            <div className="our-offices-card-img">
-              <img src={OurOfficesImage3} alt="our-offices-img3" />
-            </div>
-            <div className="our-offices-card-details">
-              <h3>Washington DC</h3>
-              <div className="our-offices-card-details-location">
-                <p>
-                  789 Elm Street, Unit 201 Washington, DC 20001 United States
-                </p>
-                <div className="our-offices-card-details-contact">
-                  <span>+44 (0)20 7608 7922</span>
-                  <span>info@wilkinsoneyre.com</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

@@ -327,7 +327,7 @@
 
   .collection-list-wrapper,
   .property-items {
-    width: 100%;
+    width: 100vw;
     margin: 0 auto;
     padding: 0 15px;
     display: grid;
@@ -337,16 +337,17 @@
   }
 
   .property-item {
-    width: 100%;
+    width: 100vw;
     max-width: 100%;
     border-radius: 0;
     background: transparent;
     box-shadow: none;
     overflow: visible;
+    padding-right: 50px;
   }
 
   .property-image-wrapper img {
-    width: 100%;
+    width: 100% ;
     height: 400px;
     object-fit: cover;
     border-radius: 16px;
@@ -410,9 +411,11 @@
   }
 
   .property-item {
-    width: 100%;
+    width: 100vw;
     background: transparent;
     box-shadow: none;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .property-image-wrapper img {
