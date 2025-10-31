@@ -12,21 +12,15 @@ export default function ContactMainSection() {
             <p>Question not answered yet? We are here to help!</p>
             <div className="contact-form-block">
               <div className="form-block">
-                <div className="form-block-label">
-                  <span>Full Name</span>
-                </div>
+                <div className="form-block-label">Full Name</div>
                 <input type="text" />
               </div>
               <div className="form-block">
-                <div className="form-block-label">
-                  <span>Email</span>
-                </div>
+                <div className="form-block-label">Email</div>
                 <input type="text" />
               </div>
               <div className="form-block">
-                <div className="form-block-label">
-                  <span>Message</span>
-                </div>
+                <div className="form-block-label">Message</div>
                 <textarea />
               </div>
               <button>Send Message</button>
