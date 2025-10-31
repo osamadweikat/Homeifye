@@ -3,7 +3,7 @@ import SearchProperty from "../search-property/SearchProperty";
 import { Link, useLocation } from "react-router-dom";
 import useInViewObserver from "../../hooks/useInViewObserver";
 
-export default function PropertiesHeroSection() {
+export default function PropertiesHeroSection({ showSearch = true, customTitle = null }) {
   useInViewObserver(".fade-section, .fade-title", { threshold: 0.3 }, true);
 
   const location = useLocation();
@@ -13,8 +13,8 @@ export default function PropertiesHeroSection() {
   const locationFilter = queryParams.get("location");
   const types = queryParams.get("types");
 
-  let title = search || properties || locationFilter || types || "Properties";
-
+  // ✅ استخدم العنوان المخصص أولاً، وإذا مش موجود نرجع للمنطق القديم
+  const title = customTitle || search || properties || locationFilter || types || "Properties";
 
   return (
     <div className="properties-hero-section">
@@ -38,7 +38,7 @@ export default function PropertiesHeroSection() {
           <h1 className="fade-title">{title}</h1>
         </div>
       </div>
-      <SearchProperty />
+      {showSearch && <SearchProperty />}
     </div>
   );
 }

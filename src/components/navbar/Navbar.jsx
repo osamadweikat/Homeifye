@@ -64,7 +64,15 @@ export default function Navbar({
                 </li>
 
                 <li className="navbar-item">
-                  <Link to="/contact">Contact Us</Link>
+                  <Link
+                    to="/contact"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = "/contact";
+                    }}
+                  >
+                    Contact Us
+                  </Link>
                 </li>
               </ul>
               <NavbarDropdown

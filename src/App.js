@@ -5,6 +5,7 @@ import NotFound from "./pages/not-found/NotFound";
 import MainLayout from "./layouts/MainLayout";
 import PropertiesDetails from "./pages/properties-details/PropertiesDetails";
 import ScrollToTop from "./hooks/ScrollToTop";
+import ContactUs from "./pages/contact-us/ContactUs";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route element={<MainLayout showFooter={true} theme="dark" />}>
           <Route path="/" element={<Home />} />
           <Route path="/properties" element={<Properties />} />
+          <Route path="/contact" element={<ContactUs />} />
         </Route>
         <Route element={<MainLayout showFooter={true} theme="light" />}>
           <Route path="/properties/:id" element={<PropertiesDetails />} />
