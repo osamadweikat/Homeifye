@@ -1,4 +1,5 @@
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Link } from "react-router-dom";
 
 export default function NavbarDropdown({ open, setOpen, dropdownRef }) {
   return (
@@ -18,14 +19,38 @@ export default function NavbarDropdown({ open, setOpen, dropdownRef }) {
       <div className={`navbar-dropdown-list ${open ? "open" : ""}`}>
         <div className="navbar-dropdown-list-inner">
           <div className="dropdown-link-column">
-            <p className="dropdown-link">Properties</p>
-            <p className="dropdown-link">Properties Details</p>
-            <p className="dropdown-link">Contact Us</p>
+            <Link
+              to="/properties"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "/properties";
+              }}
+            >
+              <p className="dropdown-link">Properties</p>
+            </Link>
+            <p className="dropdown-link">Login</p>
+            <p className="dropdown-link">Register</p>
           </div>
           <div className="dropdown-link-column">
-            <p className="dropdown-link">Style Guides</p>
-            <p className="dropdown-link">Licenses</p>
-            <p className="dropdown-link">Changelog</p>
+            <Link
+              to="/contact"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "/our-offices";
+              }}
+            >
+              <p className="dropdown-link">Our Offices</p>
+            </Link>
+            <p className="dropdown-link">Our Teams</p>
+            <Link
+              to="/contact"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "/contact-us";
+              }}
+            >
+              <p className="dropdown-link">Contact Us</p>
+            </Link>
           </div>
         </div>
       </div>

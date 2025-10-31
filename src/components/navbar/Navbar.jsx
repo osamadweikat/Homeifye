@@ -68,7 +68,7 @@ export default function Navbar({
                     to="/contact"
                     onClick={(e) => {
                       e.preventDefault();
-                      window.location.href = "/contact";
+                      window.location.href = "/contact-us";
                     }}
                   >
                     Contact Us

@@ -6,6 +6,7 @@ import MainLayout from "./layouts/MainLayout";
 import PropertiesDetails from "./pages/properties-details/PropertiesDetails";
 import ScrollToTop from "./hooks/ScrollToTop";
 import ContactUs from "./pages/contact-us/ContactUs";
+import OurOffices from "./pages/our-offices/OurOffices";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <Route element={<MainLayout showFooter={true} theme="dark" />}>
           <Route path="/" element={<Home />} />
           <Route path="/properties" element={<Properties />} />
-          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/our-offices" element={<OurOffices />} />
         </Route>
         <Route element={<MainLayout showFooter={true} theme="light" />}>
           <Route path="/properties/:id" element={<PropertiesDetails />} />
