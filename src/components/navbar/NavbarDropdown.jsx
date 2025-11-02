@@ -41,7 +41,15 @@ export default function NavbarDropdown({ open, setOpen, dropdownRef }) {
             >
               <p className="dropdown-link">Our Offices</p>
             </Link>
-            <p className="dropdown-link">Our Teams</p>
+            <Link
+              to="/our-teams"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "/our-teams";
+              }}
+            >
+              <p className="dropdown-link">Our Teams</p>
+            </Link>
             <Link
               to="/contact"
               onClick={(e) => {
