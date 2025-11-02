@@ -108,6 +108,29 @@
   color: var(--grey-color);
 }
 
+.fade-target {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.in-view.fade-target {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.team-title,
+.team-subtitle {
+  text-align: center;
+}
+
 @media screen and (max-width: 1280px) {
   .team-title {
     font-size: 60px;
