@@ -3,6 +3,7 @@ import { propertiesData } from "../../data/propertiesData";
 import useInViewObserver from "../../hooks/useInViewObserver";
 import RightArrow from "../../assets/images/right arrow.svg";
 import CollectionListItem from "./CollectionListItem";
+import { Link } from "react-router-dom";
 
 export default function FeaturedListingSection() {
   useInViewObserver(".animate-on-scroll", { threshold: 0.3 }, true);
@@ -23,10 +24,12 @@ export default function FeaturedListingSection() {
           </div>
         </div>
         <div className="collection-list-btn animate-on-scroll fade-up">
+          <Link to="/properties">
           <button>
             Explore All Properties{" "}
             <img src={RightArrow} alt="arrow" className="collection-list-img" />
           </button>
+          </Link>
         </div>
       </div>
     </div>

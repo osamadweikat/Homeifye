@@ -37,7 +37,15 @@ export default function NavbarDropdown({ open, setOpen, dropdownRef }) {
             >
               <p className="dropdown-link">Login</p>
             </Link>
-            <p className="dropdown-link">Register</p>
+            <Link
+              to="/register"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "/register";
+              }}
+            >
+              <p className="dropdown-link">Register</p>
+            </Link>
           </div>
           <div className="dropdown-link-column">
             <Link

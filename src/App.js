@@ -9,6 +9,7 @@ import ContactUs from "./pages/contact-us/ContactUs";
 import OurOffices from "./pages/our-offices/OurOffices";
 import OurTeams from "./pages/our-teams/OurTeams";
 import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route element={<MainLayout showFooter={true} theme="light" />}>
           <Route path="/properties/:id" element={<PropertiesDetails />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Route>
         <Route element={<MainLayout showFooter={false} theme="dark" />}>
           <Route path="*" element={<NotFound />} />

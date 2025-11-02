@@ -65,7 +65,7 @@ export default function Navbar({
 
                 <li className="navbar-item">
                   <Link
-                    to="/contact"
+                    to="/contact-us"
                     onClick={(e) => {
                       e.preventDefault();
                       window.location.href = "/contact-us";
@@ -82,7 +82,9 @@ export default function Navbar({
               />
             </div>
             <div className="navbar-actions">
-              <button className="navbar-btn">Get for Free</button>
+              <Link to="https://github.com/osamadweikat">
+                <button className="navbar-btn">Get for Free</button>
+              </Link>
 
               <MenuIcon
                 sx={navbarMenuIconStyles}

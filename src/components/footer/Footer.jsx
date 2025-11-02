@@ -5,6 +5,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import RightArrow from "../../assets/images/right arrow.svg";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -13,7 +14,15 @@ export default function Footer() {
         <div className="footer-container">
           <div className="footer-inner">
             <div className="footer-details">
-              <img src={BrandLogoDark} alt="brand-logo-dark" />
+              <Link
+                to="/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = "/";
+                }}
+              >
+                <img src={BrandLogoDark} alt="brand-logo-dark" />
+              </Link>
               <p>
                 © Homeifye dedicated to revolutionizing the real estate
                 experience. Through innovation and excellence.
@@ -24,26 +33,84 @@ export default function Footer() {
                 <TwitterIcon />
                 <LinkedInIcon />
               </div>
-              <button>
-                Get for Free <img src={RightArrow} alt="arrow" />
-              </button>
+              <Link to="https://github.com/osamadweikat">
+                <button>
+                  Get for Free <img src={RightArrow} alt="arrow" />
+                </button>
+              </Link>
             </div>
             <div className="footer-links-wrapper">
               <div className="footer-link-column">
                 <h2>Pages</h2>
                 <div className="footer-links">
-                  <span>Home</span>
-                  <span>Properties</span>
-                  <span>Contact Us</span>
+                  <Link
+                    to="/"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = "/";
+                    }}
+                  >
+                    <span>Home</span>
+                  </Link>
+                  <Link
+                    to="/properties"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = "/properties";
+                    }}
+                  >
+                    <span>Properties</span>
+                  </Link>
+                  <Link
+                    to="/login"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = "/login";
+                    }}
+                  >
+                    <span>Login</span>
+                  </Link>
+                  <Link
+                    to="/register"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = "/register";
+                    }}
+                  >
+                    <span>Register</span>
+                  </Link>
                 </div>
               </div>
               <div className="footer-link-column">
-                <h2>Template</h2>
+                <h2>Explore</h2>
                 <div className="footer-links">
-                  <span>Style Guide</span>
-                  <span>Licenses</span>
-                  <span>Changelog</span>
-                  <span>404</span>
+                  <Link
+                    to="/our-offices"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = "/our-offices";
+                    }}
+                  >
+                    <span>Our Offices</span>
+                  </Link>
+                  <Link
+                    to="/our-teams"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = "/our-teams";
+                    }}
+                  >
+                    <span>Our Teams</span>
+                  </Link>
+                  <Link
+                    to="/contact-us"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = "/contact-us";
+                    }}
+                  >
+                    <span>Contact Us</span>
+                  </Link>
                 </div>
               </div>
               <div className="footer-link-column">
@@ -58,23 +125,43 @@ export default function Footer() {
           </div>
           <div className="footer-cta">
             <div className="footer-cta-content">
-              <h3>Need Help Customizing Your Site?</h3>
+              <h3>Need Help Finding Your Dream Property?</h3>
               <p>
-                Let us personalize your pages or make adjustments to help your
-                site shine.
+                Let us customize your experience and help you discover the
+                perfect place to call home.
               </p>
             </div>
-            <button>
-              {" "}
-              Get in touch <img src={RightArrow} alt="arrow" />
-            </button>
+            <Link
+              to="/contact-us"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "/contact-us";
+              }}
+            >
+              <button>
+                {" "}
+                Get in touch <img src={RightArrow} alt="arrow" />
+              </button>
+            </Link>
           </div>
           <div className="footer-bottom">
             <span>
-              © All rights reserved. <span className="highlight">Flowfye.</span>
+              © All rights reserved.{" "}
+              <Link
+                to="/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = "/";
+                }}
+              >
+                <span className="highlight">Homeifye.</span>
+              </Link>
             </span>
             <span>
-              Powered by <span className="highlight">Webflow.</span>
+              Powered by{" "}
+              <Link to="https://github.com/osamadweikat">
+                <span className="highlight">Osama Dweikat.</span>
+              </Link>
             </span>
           </div>
         </div>

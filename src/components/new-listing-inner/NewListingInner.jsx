@@ -3,6 +3,7 @@ import RightArrow from "../../assets/images/right arrow.svg";
 import { propertiesData } from "../../data/propertiesData";
 import useInViewObserver from "../../hooks/useInViewObserver";
 import PropertyItem from "./PropertyItem";
+import { Link } from "react-router-dom";
 
 export default function NewListingInner({ variant = "home", data }) {
   const isHome = variant === "home";
@@ -19,9 +20,11 @@ export default function NewListingInner({ variant = "home", data }) {
       {isHome && (
         <div className="new-listing-header animate-on-scroll fade-up">
           <h1 className="new-listing-title">New Listings</h1>
-          <button className="new-listing-btn">
-            Explore All <img src={RightArrow} alt="arrow" />
-          </button>
+          <Link to="/properties">
+            <button className="new-listing-btn">
+              Explore All <img src={RightArrow} alt="arrow" />
+            </button>
+          </Link>
         </div>
       )}
 

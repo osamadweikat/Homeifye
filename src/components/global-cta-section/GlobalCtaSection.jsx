@@ -3,6 +3,7 @@ import GlobalCtaImage from "../../assets/images/global-cta-image.png";
 import GlobalCtaImage2 from "../../assets/images/global-cta-image3.png";
 import RightArrow from "../../assets/images/right arrow.svg";
 import useInViewObserver from "../../hooks/useInViewObserver";
+import { Link } from "react-router-dom";
 
 export default function GlobalCtaSection() {
   useInViewObserver(
@@ -22,9 +23,17 @@ export default function GlobalCtaSection() {
         </div>
         <div className="global-cta-content-box">
           <h2>Are you looking to buy or rent a property?</h2>
-          <button>
-            Get In Touch <img src={RightArrow} alt="arrow" />
-          </button>
+          <Link
+            to="/contact-us"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = "/contact-us";
+            }}
+          >
+            <button>
+              Get In Touch <img src={RightArrow} alt="arrow" />
+            </button>
+          </Link>
         </div>
       </div>
     </div>

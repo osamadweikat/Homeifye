@@ -3,44 +3,84 @@ import LogoDark from "../../assets/images/logo-dark.svg";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Sidebar({ isOpen, setIsOpen }) {
   const [pagesOpen, setPagesOpen] = useState(false);
 
+  const handleClose = () => {
+    setIsOpen(false);
+    setPagesOpen(false);
+  };
+
   return (
     <div className={`sidebar ${isOpen ? "open" : ""}`}>
       <div className="sidebar-inner">
-        <CloseIcon className="sidebar-close" onClick={() => setIsOpen(false)} />
-
+        <CloseIcon className="sidebar-close" onClick={handleClose} />
         <div className="sidebar-content">
           <div className="sidebar-header">
-            <img src={LogoDark} alt="logo" className="sidebar-logo" />
+            <Link to="/" onClick={handleClose}>
+              <img src={LogoDark} alt="logo" className="sidebar-logo" />
+            </Link>
           </div>
-
           <ul className="sidebar-menu">
-            <li>Home</li>
-            <li>Properties</li>
-            <li>Contact Us</li>
-
+            <li>
+              <Link to="/" onClick={handleClose}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/properties" onClick={handleClose}>
+                Properties
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact-us" onClick={handleClose}>
+                Contact Us
+              </Link>
+            </li>
             <li
               className="sidebar-dropdown"
               onClick={() => setPagesOpen(!pagesOpen)}
             >
               Pages
               <ExpandMoreIcon
-                className={`dropdown-icon ${pagesOpen ? "rotate" : ""}`}
+                className={`pages-dropdown-icon ${pagesOpen ? "rotate" : ""}`}
                 sx={{ fontSize: 22 }}
               />
             </li>
-
             {pagesOpen && (
               <ul className="sidebar-submenu">
-                <li>Properties</li>
-                <li>Properties Details</li>
-                <li>Contact Us</li>
-                <li>Style Guides</li>
-                <li>Licenses</li>
-                <li>Changelog</li>
+                <li>
+                  <Link to="/properties" onClick={handleClose}>
+                    Properties
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/login" onClick={handleClose}>
+                    Login
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/register" onClick={handleClose}>
+                    Register
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/our-offices" onClick={handleClose}>
+                    Our Offices
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/our-teams" onClick={handleClose}>
+                    Our Teams
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact-us" onClick={handleClose}>
+                    Contact Us
+                  </Link>
+                </li>
               </ul>
             )}
           </ul>

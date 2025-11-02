@@ -94,11 +94,11 @@
   gap: 6px;
 }
 
-.dropdown-icon {
-  transition: transform 0.3s ease;
+.pages-dropdown-icon {
+  transition: transform 0.3s ease !important;
 }
 
-.dropdown-icon.rotate {
+.pages-dropdown-icon.rotate {
   transform: rotate(180deg);
 }
 

@@ -3,6 +3,7 @@ import HomeHeroImage from "../../assets/images/home-hero.avif";
 import RightArrow from "../../assets/images/right arrow.svg";
 import { useRef } from "react";
 import useInViewObserver from "../../hooks/useInViewObserver";
+import { Link } from "react-router-dom";
 
 export default function InnerSection() {
   const sectionRef = useRef(null);
@@ -14,11 +15,15 @@ export default function InnerSection() {
         <h1 className={`slide-in ${isVisible ? "in-view" : ""}`}>
           Find the right and best home for your family
         </h1>
-        <button
-          className={`inner-section-btn slide-in ${isVisible ? "in-view" : ""}`}
-        >
-          Start exploring <img src={RightArrow} alt="arrow" />
-        </button>
+        <Link to="/properties">
+          <button
+            className={`inner-section-btn slide-in ${
+              isVisible ? "in-view" : ""
+            }`}
+          >
+            Start exploring <img src={RightArrow} alt="arrow" />
+          </button>
+        </Link>
       </div>
 
       <div className={`img-box slide-in ${isVisible ? "in-view" : ""}`}>
