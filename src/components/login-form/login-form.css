@@ -1,0 +1,230 @@
+.login-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 900px;
+}
+
+.login-content {
+  width: 66.66%;
+  margin: 0 auto;
+}
+
+.login-title {
+  font-size: 4rem;
+  color: var(--primary-color);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.login-title svg {
+  font-size: 3rem;
+  margin-top: 9px;
+  margin-left: 5px;
+  color: var(--secondary-color);
+}
+
+.login-subtitle {
+  text-align: center;
+  color: var(--grey-color);
+  margin-bottom: 2.5rem;
+  font-size: 1.5rem;
+}
+
+.login-subtitle span {
+  color: var(--secondary-color);
+}
+
+.input-group {
+  margin-bottom: 1.8rem;
+}
+
+.input-group label {
+  display: block;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  background-color: white;
+  transition: border-color 0.3s ease;
+}
+
+.input-wrapper:focus-within {
+  border-color: var(--secondary-color);
+}
+
+.input-wrapper input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: var(--primary-color);
+  background: transparent;
+  padding-left: 0.6rem;
+}
+
+.input-icon {
+  color: var(--grey-color);
+  font-size: 1.3rem;
+}
+
+.toggle-password {
+  cursor: pointer;
+  color: var(--grey-color);
+  font-size: 1.3rem;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--secondary-color);
+  color: white;
+}
+
+.input-wrapper input[type="password"] {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.05rem;
+}
+
+.toggle-password.active {
+  color: var(--secondary-color);
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+}
+
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  color: var(--grey-color);
+}
+
+.remember-me input {
+  margin-right: 0.4rem;
+}
+
+.forgot-password {
+  color: var(--secondary-color);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: var(--primary-color);
+}
+
+.login-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--secondary-color);
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-btn:hover {
+  background-color: #e55a12;
+  transform: translateY(-2px);
+}
+
+.signup-text {
+  text-align: center;
+  color: var(--grey-color);
+  margin-top: 1.5rem;
+}
+
+.signup-text span {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.signup-text span:hover {
+  color: var(--primary-color);
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-item.in-view {
+  animation: fadeInUp 0.8s forwards;
+}
+
+.fade-item:nth-child(1).in-view {
+  animation-delay: 0s;
+}
+.fade-item:nth-child(2).in-view {
+  animation-delay: 0.2s;
+}
+.fade-item:nth-child(3).in-view {
+  animation-delay: 0.4s;
+}
+.fade-item:nth-child(4).in-view {
+  animation-delay: 0.6s;
+}
+.fade-item:nth-child(5).in-view {
+  animation-delay: 0.8s;
+}
+.fade-item:nth-child(6).in-view {
+  animation-delay: 1s;
+}
+.fade-item:nth-child(7).in-view {
+  animation-delay: 1.2s;
+}
+
+@media (max-width: 768px) {
+  .login-content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 568px) {
+  .login-title {
+    font-size: 3rem;
+  }
+
+  .login-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 568px) {
+  .login-title {
+    font-size: 2rem;
+  }
+
+  .login-title svg {
+    font-size: 2rem;
+  }
+}
